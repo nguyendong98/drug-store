@@ -21,18 +21,18 @@ import { TimeKeepingModule } from './modules/time-keeping/time-keeping.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false
-    }),
-    // MongooseModule.forRoot(process.env.MONGO_ATLAS, {
+    // MongooseModule.forRoot(process.env.MONGODB_URI, {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
     //   useCreateIndex: true,
     //   useFindAndModify: false
     // }),
+    MongooseModule.forRoot(process.env.MONGO_ATLAS, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }),
     SendGridModule.forRoot({
       apikey: process.env.SENDGRID_API_KEY
     }),

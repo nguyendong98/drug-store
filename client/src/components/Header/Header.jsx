@@ -406,14 +406,7 @@ export const Header = () => {
             <AppBar className="header">
                 <Toolbar className="py-4">
                     <Link to={'/'} exact="true"><img src={logo} alt={logo}/></Link>
-                    <Autocomplete
-                        id="combo-box-demo"
-                        className="auto-complete"
-                        options={top100Films}
-                        getOptionLabel={(option) => option.title}
-                        style={{ width: 600 }}
-                        renderInput={(params) => <TextField {...params}  placeholder="Search for Medicines/ Healthcare Products" />}
-                    />
+
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <Button
@@ -492,9 +485,4 @@ export const Header = () => {
         </div>
     );
 }
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
 
-];
