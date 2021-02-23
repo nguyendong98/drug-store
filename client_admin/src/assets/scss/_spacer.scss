@@ -1,0 +1,82 @@
+@mixin generate-padding-margin-helper($spacers: $spacers, $spacers-breakpoints: $spacers-breakpoints, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $spacers-config in $spacers-breakpoints {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      @each $size, $value in $spacers-config {
+        //padding
+        .p-#{$size} {
+          padding: var(--spacer-#{$value}) !important;
+        }
+        .p#{$infix}-#{$size} {
+          padding: var(--spacer-#{$value}) !important;
+        }
+        .pl#{$infix}-#{$size}, .px#{$infix}-#{$size} {
+          padding-left: var(--spacer-#{$value}) !important;
+        }
+        .pr#{$infix}-#{$size}, .px#{$infix}-#{$size} {
+          padding-right: var(--spacer-#{$value}) !important;
+        }
+        .pt#{$infix}-#{$size}, .py#{$infix}-#{$size} {
+          padding-top: var(--spacer-#{$value}) !important;
+        }
+        .pb#{$infix}-#{$size}, .py#{$infix}-#{$size} {
+          padding-bottom: var(--spacer-#{$value}) !important;
+        }
+
+        //margin
+        .m-#{$size} {
+          margin: var(--spacer-#{$value}) !important;
+        }
+        .m#{$infix}-#{$size} {
+          margin: var(--spacer-#{$value}) !important;
+        }
+        .ml#{$infix}-#{$size}, .mx#{$infix}-#{$size} {
+          margin-left: var(--spacer-#{$value}) !important;
+        }
+        .mr#{$infix}-#{$size}, .mx#{$infix}-#{$size} {
+          margin-right: var(--spacer-#{$value}) !important;
+        }
+        .mt#{$infix}-#{$size}, .my#{$infix}-#{$size} {
+          margin-top: var(--spacer-#{$value}) !important;
+        }
+        .mb#{$infix}-#{$size}, .my#{$infix}-#{$size} {
+          margin-bottom: var(--spacer-#{$value}) !important;
+        }
+
+        //negative-margin
+        .m#{$infix}-n-#{$size} {
+          margin: calc(-1 * var(--spacer-#{$value})) !important;
+        }
+        .ml#{$infix}-n-#{$size}, .mx#{$infix}-n-#{$size} {
+          margin-left: calc(-1 * var(--spacer-#{$value})) !important;
+        }
+        .mr#{$infix}-n-#{$size}, .mx#{$infix}-n-#{$size} {
+          margin-right: calc(-1 * var(--spacer-#{$value})) !important;
+        }
+        .mt#{$infix}-n-#{$size}, .my#{$infix}-n-#{$size} {
+          margin-top: calc(-1 * var(--spacer-#{$value})) !important;
+        }
+        .mb#{$infix}-n-#{$size}, .my#{$infix}-n-#{$size} {
+          margin-bottom: calc(-1 * var(--spacer-#{$value})) !important;
+        }
+      }
+    }
+  }
+}
+
+@include generate-padding-margin-helper();
+
+//@each $spacer-name, $spacer-value in $egov-spacers {
+//  .p-#{$spacer-name}, .pt-#{$spacer-name}, .py-#{$spacer-name} {
+//    padding-top: #{$spacer-value} !important;
+//  }
+//  .p-#{$spacer-name}, .pb-#{$spacer-name}, .py-#{$spacer-name} {
+//    padding-bottom: #{$spacer-value} !important;
+//  }
+//  .p-#{$spacer-name}, .pr-#{$spacer-name}, .px-#{$spacer-name} {
+//    padding-right: #{$spacer-value} !important;
+//  }
+//  .p-#{$spacer-name}, .pl-#{$spacer-name}, .px-#{$spacer-name} {
+//    padding-left: #{$spacer-value} !important;
+//  }
+//}

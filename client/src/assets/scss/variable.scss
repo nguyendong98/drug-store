@@ -1,0 +1,171 @@
+// Start variable definition
+$color-blue: #1565C0;
+$color-blue-semi-light: #0C80D5;
+$color-blue-light: #078FF2;
+$color-gray: #F2F2F2;
+$color-light-gray: #d2d2d2;
+$color-dark-gray: #7C7C7C;
+$color-black: #353535;
+$border-color: #F1F1F1;
+$color-white: #FFFFFF;
+$color-green: #10847e;
+$color-red: #FF0100;
+
+$main-color: $color-green;
+$second-color: $color-gray;
+$third-color: $color-black;
+$white-color: $color-white;
+$red-color: $color-red;
+$light-gray-color: $color-red;
+$border: $border-color;
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 4px !default;
+$spacers: (
+) !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+
+$spacers: map-merge(
+                (
+                        0: 0,
+                        1: ($spacer * 1),
+                        2: ($spacer * 2),
+                        3: ($spacer * 3),
+                        4: ($spacer * 4),
+                        5: ($spacer * 5),
+                        6: ($spacer * 6),
+                        7: ($spacer * 7),
+                        8: ($spacer * 8),
+                        9: ($spacer * 9),
+                        10: ($spacer * 10),
+                        11: ($spacer * 11),
+                        12: ($spacer * 12),
+                        13: ($spacer * 13),
+                        14: ($spacer * 14),
+                        15: ($spacer * 15),
+                        16: ($spacer * 16),
+                ),
+                $spacers
+);
+$egov-spacers: (
+        "base": map_get($spacers, 1),
+        "sm"  : map_get($spacers, 2),
+        "md"  : map_get($spacers, 3),
+        "lg"  : map_get($spacers, 4),
+        "xl"  : map_get($spacers, 5),
+        "xxl" : map_get($spacers, 6),
+);
+
+$spacers-breakpoints: (
+        xs: (
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+        ),
+        sm: (
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+        ),
+        md: (
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+        ),
+        lg: (
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+        ),
+        xl: (
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+        )
+);
+$grid-breakpoints: (
+        xs: 0,
+        sm: 600px,
+        md: 960px,
+        lg: 1280px,
+        xl: 1919px
+) !default;
+
+
+// End variable definition
+

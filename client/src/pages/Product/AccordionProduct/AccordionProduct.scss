@@ -1,0 +1,14 @@
+.MuiAccordionSummary-content.Mui-expanded {
+  margin: 0 ;
+}
+.MuiAccordionDetails-root{
+  padding: 0 0 16px 0 !important ;
+  flex-direction: column;
+}
+.MuiAccordion-root.Mui-expanded {
+  margin: 0 0 !important;
+}
+.active {
+  background: var(--main-color);
+  color: #FFFFFF !important;
+}
