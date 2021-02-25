@@ -15,8 +15,7 @@ import Divider from "@material-ui/core/Divider";
 import Avatar from "@material-ui/core/Avatar";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+
 
 //MATERIAL ICON
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -271,9 +270,11 @@ export const Header = () => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
+            <MenuItem onClick={handleCartMenuOpen}>
                 <IconButton  color="inherit">
-                    <LocalGroceryStoreIcon />
+                    <Badge badgeContent={cart && cart.length > 0 ? cart.length : 0} color="secondary">
+                        <LocalGroceryStoreIcon />
+                    </Badge>
                 </IconButton>
                 <p>Cart</p>
             </MenuItem>
@@ -285,15 +286,42 @@ export const Header = () => {
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
-            <MenuItem onClick={showDialogLogin}>
-                <IconButton
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Login/ Register</p>
+            <MenuItem>
+                {
+                    userProps && userProps.isAuthenticated && userProps.user ?
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={handleAuthMenuOpen}
+                        >
+                            <StyledBadge
+                                className="badge"
+                                overlap="circle"
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                variant="dot"
+                            >
+                                <Avatar className="img-avt mr-2" src={`${avatarURL}/${userProps.user.avatar}`} alt={userProps.user.fullName} />
+                                <Typography variant="body1" color="textPrimary" className="flex-row align-items-center">{userProps.user.fullName.split(' ').map((val, i) => {
+                                    if (i === userProps.user.fullName.split(' ').length - 1) {
+                                        console.log(val);
+                                        return val;
+                                    }
+                                })}</Typography>
+
+                            </StyledBadge>
+                            <KeyboardArrowDown/>
+                        </Button> :
+                        <Button
+                            variant="contained"
+                            startIcon={<AccountCircle />}
+                            onClick={showDialogLogin}
+                        >
+                            <h4>Login/ SignUp</h4>
+                        </Button>
+                }
             </MenuItem>
         </Menu>
     );
