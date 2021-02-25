@@ -37,6 +37,7 @@ import {avatarURL, productURL} from "../../utils/imageURL";
 import './Header.scss';
 import {getAllProductCategoryGroup, getProductCategory} from "../../features/product";
 import {getCartSuccess, removeCartItemSuccess} from "../../features/cart";
+import {SidebarMob} from '../SidebarMob/SidebarMob';
 
 //STYLE
 const useStyles = makeStyles((theme) => ({
@@ -107,6 +108,9 @@ export const Header = () => {
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const isAuthAnchorEl = Boolean(authAnchorEl);
     const isCartAnchorEl = Boolean(cartAnchorEl);
+    const [sidebarMob, setSidebarMob] = React.useState({
+        left: false,
+    });
     //--------------------------------------------------------------------------------------------
 
     //props
@@ -115,11 +119,23 @@ export const Header = () => {
     const productProps = useSelector(state => state.product);
     //--------------------------------------------------------------------------------------------
 
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setSidebarMob({ ...sidebarMob, [anchor]: open });
+    };
     //handle dialog login
     const showDialogLogin = () => {
         dispatch(showLogin());
     }
     //--------------------------------------------------------------------------------------------
+
+    //handle sidebarMob
+    const handleSidebarMob = () => {
+        setSidebarMob(false)
+    }
 
     //handle menu mobile
     const handleMobileMenuOpen = event => {
@@ -510,6 +526,7 @@ export const Header = () => {
             {renderProductMenu}
             {renderCategoryMenu}
             {renderCartMenu}
+            <SidebarMob anchor={sidebarMob}/>
         </div>
     );
 }

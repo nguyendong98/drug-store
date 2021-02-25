@@ -23,10 +23,9 @@ import WatchLaterTwoToneIcon from '@material-ui/icons/WatchLaterTwoTone';
 import TodayIcon from '@material-ui/icons/Today';
 import {NavLink} from "react-router-dom";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
-import {getCalendar, getCalendarOfStaff} from "../../features/calendar";
+import {getCalendarOfStaff} from "../../features/calendar";
 import moment from "moment";
-import setAuthToken from "../../utils/setAuthToken";
-import {loadUser} from "../../features/user";
+
 import {checkTimeToWork} from "../../utils/func";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
