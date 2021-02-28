@@ -19,13 +19,13 @@ import Menu from '@material-ui/core/Menu';
 
 //MATERIAL ICON
 import withStyles from "@material-ui/core/styles/withStyles";
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import LocalGroceryStoreIcon from '@material-ui/icons/LocalGroceryStore';
+import BeachAccessTwoToneIcon from '@material-ui/icons/BeachAccessTwoTone';
 
 //OTHER IMPORT
 import logo from './../../assets/images/logo.png'
@@ -322,7 +322,6 @@ export const Header = () => {
                                 <Avatar className="img-avt mr-2" src={`${avatarURL}/${userProps.user.avatar}`} alt={userProps.user.fullName} />
                                 <Typography variant="body1" color="textPrimary" className="flex-row align-items-center">{userProps.user.fullName.split(' ').map((val, i) => {
                                     if (i === userProps.user.fullName.split(' ').length - 1) {
-                                        console.log(val);
                                         return val;
                                     }
                                 })}</Typography>
@@ -369,7 +368,7 @@ export const Header = () => {
             <Divider className="my-2"/>
             <MenuItem>
                 <Typography variant="body1" >
-                    Profile
+                    Thông tin cá nhân
                 </Typography>
             </MenuItem>
             <Link to="/my-order" exact="true">
@@ -381,7 +380,7 @@ export const Header = () => {
             </Link>
             <MenuItem onClick={logOut}>
                 <Typography variant="body1" >
-                    Sign out
+                    Đăng xuất
                 </Typography>
             </MenuItem>
         </Menu>
@@ -448,7 +447,7 @@ export const Header = () => {
             <Login />
             <Register />
             <AppBar className="header">
-                <Toolbar className="py-4">
+                <Toolbar className="py-4 header-toolbar">
                     <Link to={'/'} exact="true"><img src={logo} alt={logo}/></Link>
 
                     <div className={classes.grow} />
@@ -456,7 +455,7 @@ export const Header = () => {
                         <Button
                             variant="contained"
                             color="secondary"
-                            startIcon={<LocalHospitalIcon />}
+                            startIcon={<BeachAccessTwoToneIcon />}
                             onClick={handleProductMenuOpen}
                         >
                             <h4>Sản phẩm </h4>
@@ -512,7 +511,7 @@ export const Header = () => {
                             aria-label="show more"
                             aria-controls={mobileMenuId}
                             aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
+                            onClick={toggleDrawer('left', true)}
                             color="inherit"
                         >
                             <MenuIcon />
@@ -526,7 +525,13 @@ export const Header = () => {
             {renderProductMenu}
             {renderCategoryMenu}
             {renderCartMenu}
-            <SidebarMob anchor={sidebarMob}/>
+            <SidebarMob
+                anchor={sidebarMob}
+                open={toggleDrawer('left', true)}
+                close={toggleDrawer('left' , false)}
+                cart={cart}
+                user={userProps}
+            />
         </div>
     );
 }

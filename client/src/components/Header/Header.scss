@@ -1,27 +1,25 @@
 .header {
   position: sticky;
   top: 0;
+  .header-toolbar {
+    @media (max-width: 959.9px) {
+      padding-top: var(--spacer-2)!important;
+      padding-bottom: var(--spacer-2)!important;
+    }
+  }
   .auto-complete {
     border: none;
-    margin-left: 16px;
+    margin-left: var(--spacer-4);
     .MuiSvgIcon-root {
       color: white;
     }
-    .MuiAutocomplete-inputRoot[class*="MuiInput-root"] {
-      color: white;
-    }
-    .MuiAutocomplete-inputRoot[class*="MuiInput-root"] {
-      border-bottom: 1px solid white;
-    }
+
   }
 }
 .MuiAppBar-colorPrimary {
   background: var(--main-color) !important;
 }
-.input-search {
-  border-radius: 5px;
-  background-color: whitesmoke;
-}
+
 .badge {
   height: 35px;
   width: 35px;

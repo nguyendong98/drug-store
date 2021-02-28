@@ -29,7 +29,7 @@ const App = () => {
           <>
               <MessageNotify></MessageNotify>
               <Header></Header>
-              <div style={{marginTop: '80px'}}>
+              <div className="has-margin-top">
                   <Switch>
                       <Route path='/' exact component={Home} />
                       <Route path='/home' exact component={Home} />
