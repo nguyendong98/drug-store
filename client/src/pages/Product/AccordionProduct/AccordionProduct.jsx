@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
 import {getCategoryCurrent, getProductTree} from "../../../features/product";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -10,12 +9,10 @@ import Grid from "@material-ui/core/Grid";
 import "./AccordionProduct.scss";
 import {Link} from "react-router-dom";
 import {Spinner} from "../../../share/Spinner/Spinner";
-export const AccordionProduct = ({id}) => {
+import {useDispatch} from 'react-redux';
+export const AccordionProduct = ({id, productProps}) => {
     const dispatch = useDispatch();
-    const productProps = useSelector(state => state.product);
-    useEffect(  () => {
-        dispatch(getProductTree());
-    },  [dispatch, id]);
+
     const arrBoolean = [];
     for (let i=0; i < 10; i++) {
         arrBoolean.push(true);
@@ -32,9 +29,7 @@ export const AccordionProduct = ({id}) => {
         })
         setExpanded([...expanded, newArr]);
     };
-    const onChangeCurrentCategory = (id) => {
-        dispatch(getCategoryCurrent(id))
-    }
+
     return productProps.productTree ? (
         <Grid>
             {
@@ -56,7 +51,6 @@ export const AccordionProduct = ({id}) => {
                                     val.categories.map((v, index) => {
                                         return (
                                             <Link key={index} to={`/product/category/${v._id}`}
-                                                  onClick={() => onChangeCurrentCategory(v._id)}
                                                   exact="true"
                                                   className={id === v._id ? 'active pl-14 py-3' : 'pl-14 py-3'}>
                                                 <Typography variant="subtitle1" className="font-weight-bold"

@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import {Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
 import Typography from "@material-ui/core/Typography";
 import {useDispatch} from "react-redux";
 import {getProduct, removeCategoryCurrent} from "../../../features/product";
@@ -12,23 +11,24 @@ import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import SpeechRecognition, {useSpeechRecognition} from "react-speech-recognition";
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme();
+
+theme.typography.h6 = {
+    fontSize: '1rem',
+    [theme.breakpoints.up('md')]: {
+        fontSize: '1.2rem',
+    },
+};
+
+
 export const ProductHead = ({currentCategory, id}) => {
     const dispatch = useDispatch();
-    let { transcript, interimTranscript, finalTranscript, resetTranscript } = useSpeechRecognition();
-
-    //
-    // useEffect(() => {
-    //     if (transcript && transcript.length > 0) {
-    //         console.log(transcript);
-    //         if (id) {
-    //             dispatch(getProduct({keyword: transcript, category: id, pageSize: 8, pageNumber: 1}));
-    //         } else {
-    //             dispatch(getProduct({keyword: transcript, pageSize: 8, pageNumber: 1}));
-    //         }
-    //     }
-    // },[dispatch, id, getProduct, transcript])
+    let { transcript } = useSpeechRecognition();
+    // , interimTranscript, finalTranscript, resetTranscript
     if (transcript && transcript.length > 0) {
-        console.log(transcript);
         if (id) {
             dispatch(getProduct({keyword: transcript, category: id, pageSize: 8, pageNumber: 1}));
         } else {
@@ -48,50 +48,54 @@ export const ProductHead = ({currentCategory, id}) => {
 
     return (
         <Grid container alignItems="center" className="p-5" justify="space-between">
-            <Grid item xs={8}>
-                <Breadcrumbs aria-label="breadcrumb">
-                    <Link to="/" exact="true" onClick={onChangeCurrentCategory}>
-                        <Typography variant="h6" className="flex-row justify-content-center align-items-center">
-                            <HomeIcon  className="mr-2"/>
-                            <span>Trang chủ</span>
-                        </Typography>
 
-                    </Link>
-                    <Link to="/product" exact="true" onClick={onChangeCurrentCategory}>
-                        <Typography variant="h6" className="flex-row justify-content-center align-items-center">
-                        <WhatshotIcon  className="mr-2"/>
-                            <span>Sản phẩm</span>
-                        </Typography>
-                    </Link>
-                    {
-                        currentCategory && (
+            <Grid item xs={12} sm={12} md={8} className="mt-0 mt-md-6">
 
+                    <Breadcrumbs aria-label="breadcrumb">
+
+                        <Link to="/" exact="true" onClick={onChangeCurrentCategory}>
+                            <ThemeProvider theme={theme}>
+                                <Typography variant="h6" className="flex-row justify-content-center align-items-center">
+                                    <HomeIcon  className="mr-2"/>
+                                    <span>Trang chủ</span>
+                                </Typography>
+                            </ThemeProvider>
+
+                        </Link>
+                        <Link to="/product" exact="true" onClick={onChangeCurrentCategory}>
+                            <Typography variant="h6" className="flex-row justify-content-center align-items-center">
+                                Sản phẩm
+                            </Typography>
+                        </Link>
+                        {
+                            currentCategory && (
                                 <Link to={`/product/category/${currentCategory._id}`} exact="true">
                                     <Typography variant="h6" >
                                         {currentCategory['idGroup'].name}
                                     </Typography>
-
                                 </Link>
-                        )
-                    }
-                    {
-                        currentCategory && (
-                            <Link to={`/product/category/${currentCategory._id}`} exact="true">
-                                <Typography variant="h6" >
-                                    {currentCategory.name}
-                                </Typography>
-                            </Link>
-                        )
-                    }
+                            )
+                        }
+                        {
+                            currentCategory && (
+                                <Link to={`/product/category/${currentCategory._id}`} exact="true">
+                                    <Typography variant="h6" >
+                                        {currentCategory.name}
+                                    </Typography>
+                                </Link>
+                            )
+                        }
 
-                </Breadcrumbs>
+
+                    </Breadcrumbs>
+
             </Grid>
-            <Grid item xs={3}>
+
+            <Grid item xs={12} md={4} lg={4}>
                 <TextField
-                    className="mt-5"
                     fullWidth={true}
                     id="input-password"
-                    label="Nhập sản phẩm bạn muốn tìm kiếm"
+                    label="Nhập sản phẩm bạn muốn tìm"
                     variant="standard"
                     onChange={e => onChangeKeyword(e)}
                     InputProps={{
@@ -109,10 +113,8 @@ export const ProductHead = ({currentCategory, id}) => {
                         )
                     }}
                     name="keyword"
-
                 />
             </Grid>
-
         </Grid>
     )
 }

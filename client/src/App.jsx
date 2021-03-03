@@ -27,21 +27,22 @@ const App = () => {
     return (
       <Router>
           <>
-              <MessageNotify></MessageNotify>
-              <Header></Header>
-              <div className="has-margin-top">
-                  <Switch>
-                      <Route path='/' exact component={Home} />
-                      <Route path='/home' exact component={Home} />
-                      <Route path='/product' exact component={Product} />
-                      <Route path='/product/category/:id' exact component={Product} />
-                      <Route path='/product/:id' exact component={ProductDetail} />
-                      <Route path='/cart' exact component={Cart} />
-                      <PrivateRoute path='/my-order' exact component={MyOrder} />
-                      <Route  component={NotFound} />
-                  </Switch>
-                  <Footer></Footer>
-              </div>
+                  <MessageNotify></MessageNotify>
+                  <Header></Header>
+                  <div className="has-margin-top">
+                      <Switch>
+                          <Route path='/' exact component={Home} />
+                          <Route path='/home' exact component={Home} />
+                          <Route path='/product' exact component={Product} />
+                          <Route path='/product/category/:id' exact component={Product} />
+                          <Route path='/product/:id' exact component={ProductDetail} />
+                          <Route path='/cart' exact component={Cart} />
+                          <PrivateRoute path='/my-order' exact component={MyOrder} />
+                          <Route  component={NotFound} />
+                      </Switch>
+                      <Footer></Footer>
+                  </div>
+              {/*</ThemeProvider>*/}
           </>
       </Router>
 

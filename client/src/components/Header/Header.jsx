@@ -131,16 +131,6 @@ export const Header = () => {
         dispatch(showLogin());
     }
     //--------------------------------------------------------------------------------------------
-
-    //handle sidebarMob
-    const handleSidebarMob = () => {
-        setSidebarMob(false)
-    }
-
-    //handle menu mobile
-    const handleMobileMenuOpen = event => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };

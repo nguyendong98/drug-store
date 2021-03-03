@@ -64,10 +64,7 @@ export const ProductCard = ({data, warehouse, profit}) => {
                         </Button>
                     </Grid>
                 </Grid>
-
-
             </CardActions>
-
         </Card>
     );
 }
