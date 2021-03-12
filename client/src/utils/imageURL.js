@@ -1,2 +1,6 @@
-export const avatarURL = 'http://localhost:5000/auth/avatar';
-export const productURL = 'http://localhost:5000/product/image';
+import {baseURL} from './api';
+
+export const avatarURL = `${baseURL}/auth/avatar`;
+export const productURL = `${baseURL}/product/image`;
+
+

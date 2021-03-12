@@ -11,17 +11,11 @@ import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import SpeechRecognition, {useSpeechRecognition} from "react-speech-recognition";
-import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
+import theme from '../../../share/Theme/Theme';
 
 
-const theme = createMuiTheme();
 
-theme.typography.h6 = {
-    fontSize: '1rem',
-    [theme.breakpoints.up('md')]: {
-        fontSize: '1.2rem',
-    },
-};
 
 
 export const ProductHead = ({currentCategory, id}) => {
@@ -47,7 +41,7 @@ export const ProductHead = ({currentCategory, id}) => {
     }
 
     return (
-        <Grid container alignItems="center" className="p-5" justify="space-between">
+        <Grid container alignItems="center" className="px-5 pt-2 pb-0 py-md-5" justify="space-between">
 
             <Grid item xs={12} sm={12} md={8} className="mt-0 mt-md-6">
 

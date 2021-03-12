@@ -27,7 +27,7 @@ export const Product = ({match}) => {
     const profit = useSelector(state => state.product.profit);
     const productProps = useSelector(state => state.product);
     const products = productProps.products;
-    return productProps && productProps.productTree ? (
+    return products && products.result && products.result.length > 0 ? (
         <>
             <ProductHead currentCategory={currentCategory} id={match.params.id}/>
             <Grid
@@ -35,15 +35,14 @@ export const Product = ({match}) => {
                 direction="row"
                 justify="flex-start"
                 alignItems="flex-start"
-                className="p-5"
+                className="p-5 pt-md-2 py-md-0"
             >
                 <Grid container direction="column" justify="center" item  xs={12} md={3}>
-                    <ProductSideBar id={match.params.id} productProps={productProps}/>
+                    <ProductSideBar currentCategory={currentCategory} id={match.params.id} productProps={productProps}/>
                 </Grid>
                 <Grid container item xs={12} md={9}>
                     <ProductContain id={match.params.id} warehouse={warehouse} products={products} profit={profit}/>
                 </Grid>
-
             </Grid>
         </>
     ) : <Spinner />

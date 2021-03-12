@@ -20,8 +20,8 @@ export class ProductService {
         @InjectConnection() private connection: Connection,
     ) {}
 
-    // @route    GET product
-    // @desc     get all product
+    // @route    GET product?query=
+    // @desc     get product by query
     // @access   public
     async getAll(query): Promise<any> {
         if (!query.keyword) {

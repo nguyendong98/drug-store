@@ -1,2 +1,12 @@
+.nav::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+.active_nav {
+  border-bottom: 3px solid var(--main-color);
+  border-radius: 5px;
+}
+.active_nav > h5 {
+  color: var(--main-color) !important;
 
-
+}

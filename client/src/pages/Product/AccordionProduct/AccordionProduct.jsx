@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import {getCategoryCurrent, getProductTree} from "../../../features/product";
+import React, {useState} from "react";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -9,9 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import "./AccordionProduct.scss";
 import {Link} from "react-router-dom";
 import {Spinner} from "../../../share/Spinner/Spinner";
-import {useDispatch} from 'react-redux';
 export const AccordionProduct = ({id, productProps}) => {
-    const dispatch = useDispatch();
 
     const arrBoolean = [];
     for (let i=0; i < 10; i++) {
@@ -35,7 +32,6 @@ export const AccordionProduct = ({id, productProps}) => {
             {
                 productProps.productTree.map((val, i) => {
                     return (
-
                         <Accordion key={i}  expanded={expanded[i]} onChange={() => handleChange(i)}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
