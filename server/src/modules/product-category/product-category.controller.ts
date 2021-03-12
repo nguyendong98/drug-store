@@ -8,9 +8,9 @@ import {
 import {ApiTags} from '@nestjs/swagger';
 import {ProductCategoryService} from './product-category.service';
 import {ProductCategoryCredentialsDto} from './dto/product-category.credentials.dto';
-import {JwtAuthGuard} from '../auth/guards/jwt-auth.guard';
-import {RolesGuard} from '../auth/guards/roles.guard';
-import {hasRoles} from '../auth/decorators/roles.decorator';
+// import {JwtAuthGuard} from '../auth/guards/jwt-auth.guard';
+// import {RolesGuard} from '../auth/guards/roles.guard';
+// import {hasRoles} from '../auth/decorators/roles.decorator';
 import {ApiImplicitQuery} from '@nestjs/swagger/dist/decorators/api-implicit-query.decorator';
 import {ApiImplicitParam} from '@nestjs/swagger/dist/decorators/api-implicit-param.decorator';
 

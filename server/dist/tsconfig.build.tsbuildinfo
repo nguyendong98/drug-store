@@ -2997,7 +2997,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/product-category/product-category.controller.ts": {
-        "version": "5e93679d36a6155d238c563132c085a47ab2a2281ace65a5d21c24773f9dbbc9",
+        "version": "7b3753bf517d0de308e7907a4fbc9d84ff190553c59adc9391cb90d8178a63ae",
         "signature": "2a531a57c98cbf772d79a977aba85cd700ad93256eddb5f0d3364276f9224f07",
         "affectsGlobalScope": false
       },
@@ -3017,7 +3017,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/product/product.service.ts": {
-        "version": "0d8e073e166e74f0e9ea5e78d56a39a82a9ec61edc5f499a9caa8c5c704ad568",
+        "version": "d30a67dfe0118c5f0746c8930345613b028ca40f7af9e3a7413354b86cbb7e04",
         "signature": "cbec3fe81f59dc0e7f762c1e2d8dca7fef1e3f5ffc85f504c309e50db3e78d52",
         "affectsGlobalScope": false
       },
@@ -5893,9 +5893,6 @@
         "../node_modules/@nestjs/swagger/dist/decorators/api-implicit-param.decorator.d.ts",
         "../node_modules/@nestjs/swagger/dist/decorators/api-implicit-query.decorator.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
-        "../src/modules/auth/decorators/roles.decorator.ts",
-        "../src/modules/auth/guards/jwt-auth.guard.ts",
-        "../src/modules/auth/guards/roles.guard.ts",
         "../src/modules/product-category/dto/product-category.credentials.dto.ts",
         "../src/modules/product-category/product-category.service.ts"
       ],

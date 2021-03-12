@@ -24,9 +24,9 @@ export class ProductService {
     // @desc     get product by query
     // @access   public
     async getAll(query): Promise<any> {
-        if (!query.keyword) {
-            query.keyword = "";
-        }
+        if (!query.keyword) query.keyword = '';
+        if (!query.pageSize) query.pageSize = 16;
+        if (!query.pageNumber) query.pageNumber = 1;
         if (!query.category) {
             const totalElement = await this.productModel.countDocuments({name: new RegExp(query.keyword, "i")});
             try {
@@ -57,12 +57,7 @@ export class ProductService {
                 return this.productModel.find();
             }
         }
-        if (!query.pageSize) {
-            query.pageSize = 16;
-        }
-        if (!query.pageNumber) {
-            query.pageNumber = 1;
-        }
+
         const totalElement = await this.productModel.countDocuments({$and: [{idCategory: query.category}, {name: new RegExp(query.keyword, "i")}]});
 
         try {

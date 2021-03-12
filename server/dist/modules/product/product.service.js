@@ -29,9 +29,12 @@ let ProductService = class ProductService {
         this.connection = connection;
     }
     async getAll(query) {
-        if (!query.keyword) {
-            query.keyword = "";
-        }
+        if (!query.keyword)
+            query.keyword = '';
+        if (!query.pageSize)
+            query.pageSize = 16;
+        if (!query.pageNumber)
+            query.pageNumber = 1;
         if (!query.category) {
             const totalElement = await this.productModel.countDocuments({ name: new RegExp(query.keyword, "i") });
             try {
@@ -61,12 +64,6 @@ let ProductService = class ProductService {
             catch (e) {
                 return this.productModel.find();
             }
-        }
-        if (!query.pageSize) {
-            query.pageSize = 16;
-        }
-        if (!query.pageNumber) {
-            query.pageNumber = 1;
         }
         const totalElement = await this.productModel.countDocuments({ $and: [{ idCategory: query.category }, { name: new RegExp(query.keyword, "i") }] });
         try {
