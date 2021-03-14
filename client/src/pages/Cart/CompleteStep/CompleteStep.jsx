@@ -13,7 +13,6 @@ import {createOrder} from "../../../features/order";
 import {removeCart} from "../../../features/cart";
 import {ThemeProvider} from '@material-ui/core/styles';
 import theme from '../../../share/Theme/Theme';
-import {Link} from 'react-router-dom';
 export const CompleteStep = ({checkoutProps, cart, completeStep}) => {
     const [onlinePay, setOnlinePay] = useState(false);
     const dispatch = useDispatch();

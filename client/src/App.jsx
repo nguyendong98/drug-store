@@ -38,7 +38,7 @@ const App = () => {
                           <Route path='/product/:id' exact component={ProductDetail} />
                           <Route path='/cart' exact component={Cart} />
                           <PrivateRoute path='/my-order' exact component={MyOrder} />
-                          <Route  component={NotFound} />
+                          <Route path="*"  component={NotFound} />
                       </Switch>
                       <Footer></Footer>
                   </div>
