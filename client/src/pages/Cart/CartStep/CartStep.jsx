@@ -43,21 +43,20 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
             completeStep();
         }
     }
-    console.log(cart);
     return (
-        <Grid container direction="row" alignItems="flex-start" className="mb-10 mt-10">
-            <Grid container item xs={8}  className="pl-5" direction="column">
+        <Grid container direction="row" alignItems="flex-start" className="mb-10 mt-10 pl-3 pl-md-5 pr-3 pr-md-0">
+            <Grid container item xs={12} md={8}  direction="column">
                 <Grid container item xs={12}>
-                    <Grid item xs={6}>
+                    <Grid item xs={4} md={6}>
                         <Typography variant="subtitle1" className="text-uppercase font-weight-bold">sản phẩm</Typography>
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="subtitle1" className="text-uppercase font-weight-bold">giá</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={3} md={2}>
                         <Typography variant="subtitle1" className="text-uppercase font-weight-bold">số lượng</Typography>
                     </Grid>
-                    <Grid item xs={2} className="text-right">
+                    <Grid item xs={3} md={2} className="text-right">
                         <Typography variant="subtitle1" className="text-uppercase font-weight-bold">tổng cộng</Typography>
                     </Grid>
                 </Grid>
@@ -68,17 +67,17 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
                         cart && cart.map((val, i) => (
                             <React.Fragment key={i}>
                                 <Grid container item xs={12} className="mt-5 mb-5">
-                                    <Grid container item xs={6} direction="row" alignItems="center" >
+                                    <Grid container item xs={4} md={6} direction="row" alignItems="center" >
                                         <Grid><CancelOutlinedIcon style={{color: '#7c7c7c'}}
                                                                   className="pointer mr-2"
                                                                   onClick={() => onRemoveItemCart(val.product._id)}/></Grid>
                                         <Grid><img className="image-cart mr-2" src={`${productURL}/${val.product.image}`} alt="img-product"/></Grid>
                                         <Grid item><Typography variant="body2">{val.product.name}</Typography></Grid>
                                     </Grid>
-                                    <Grid container item xs={2} alignItems="center">
+                                    <Grid container item xs={3} md={2} alignItems="center">
                                         <Typography variant="body2" >{val.price.toLocaleString()} VND</Typography>
                                     </Grid>
-                                    <Grid container item xs={2} alignItems="center">
+                                    <Grid container item xs={2} md={2}  alignItems="center">
                                         <TextField
                                             type="number"
                                             InputProps={{
@@ -92,7 +91,7 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
                                             inputRef={register({ required: true })}
                                         />
                                     </Grid>
-                                    <Grid container item xs={2} alignItems="center" justify="flex-end" >
+                                    <Grid container item xs={3} md={2} alignItems="center" justify="flex-end" >
                                         <Typography  variant="body2" >{(val.price * val.qty).toLocaleString()} VND</Typography>
                                     </Grid>
                                 </Grid>
@@ -100,12 +99,12 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
                             </React.Fragment>
                         ))
                     }
-                    <Grid container className="mt-10" justify="flex-end">
+                    <Grid container className="mt-5 mt-md-10" justify="flex-end">
                         <Button startIcon={<KeyboardBackspaceRoundedIcon />} variant="outlined" color="primary"
-                                  type="button" className="text-uppercase mr-5">
+                                  type="button" className="text-uppercase mr-0 mr-md-5">
                             <Link to='/product' exact="true">tiếp tục xem sản phẩm</Link>
                         </Button>
-                        <Button variant="outlined" color="primary" disableElevation  type="submit" disabled={disabled}>
+                        <Button className="mt-4 mt-md-0" variant="outlined" color="primary" disableElevation  type="submit" disabled={disabled}>
                             cập nhật giỏ hàng
                         </Button>
                     </Grid>
@@ -114,7 +113,7 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
 
             </Grid>
             <Divider orientation="vertical" flexItem className="ml-6 mr-6" />
-            <Grid container item xs={3}>
+            <Grid container item xs={12} md={3}>
                 <div className="w-100">
                     <Typography variant="subtitle1" className="text-uppercase font-weight-bold">
                         tổng số lượng

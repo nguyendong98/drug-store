@@ -24,6 +24,11 @@
 .w-80 {
   width: 80%;
 }
+.w-md-80 {
+  @media (min-width: 960px) {
+    width: 80%;
+  }
+}
 .w-60 {
   width: 60%;
 }

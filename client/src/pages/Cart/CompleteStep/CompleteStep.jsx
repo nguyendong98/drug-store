@@ -44,34 +44,34 @@ export const CompleteStep = ({checkoutProps, cart, completeStep}) => {
     }
     return (
         <div>
-            <Grid container direction="row" alignItems="flex-start" className="mb-10 mt-10">
-                <Grid container item xs={7}  className="pl-5" direction="column">
-                    <Typography variant="h6" className="font-weight-bold text-uppercase">
+            <Grid container direction="row" alignItems="flex-start" className="mb-10 mt-5 mt-md-10 pl-3 pl-md-5 pr-3 pr-md-0">
+                <Grid container item xs={12} md={7}   direction="column">
+                    <Typography variant="h6" className="font-weight-bold text-uppercase text-center">
                         thông tin thanh toán
                     </Typography>
                     <Grid container className="mt-3">
-                        <Grid item xs={3}><Typography variant="subtitle1" className="font-weight-bold">Họ tên người nhận: </Typography></Grid>
-                        <Grid item xs={9}><Typography variant="h6">{checkoutProps.fullName} </Typography></Grid>
+                        <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Họ tên người nhận: </Typography></Grid>
+                        <Grid item xs={7} md={9}><Typography variant="h6">{checkoutProps.fullName} </Typography></Grid>
                     </Grid>
                     <Grid container className="mt-3">
-                        <Grid item xs={3}><Typography variant="subtitle1" className="font-weight-bold">Số điện thoại: </Typography></Grid>
-                        <Grid item xs={9}><Typography variant="h6">{checkoutProps.phone} </Typography></Grid>
+                        <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Số điện thoại: </Typography></Grid>
+                        <Grid item xs={7} md={9}><Typography variant="h6">{checkoutProps.phone} </Typography></Grid>
                     </Grid>
                     <Grid container className="mt-3">
-                        <Grid item xs={3}><Typography variant="subtitle1" className="font-weight-bold">Email: </Typography></Grid>
-                        <Grid item xs={9}><Typography variant="h6">{checkoutProps.email} </Typography></Grid>
+                        <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Email: </Typography></Grid>
+                        <Grid item xs={7} md={9}><Typography variant="h6">{checkoutProps.email} </Typography></Grid>
                     </Grid>
                     <Grid container className="mt-3">
-                        <Grid item xs={3}><Typography variant="subtitle1" className="font-weight-bold">Địa chỉ nhận hàng: </Typography></Grid>
-                        <Grid item xs={9}><Typography variant="h6">{checkoutProps.addressDetail} </Typography></Grid>
+                        <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Địa chỉ nhận hàng: </Typography></Grid>
+                        <Grid item xs={7} md={9}><Typography variant="h6">{checkoutProps.addressDetail} </Typography></Grid>
                     </Grid>
                     <Grid container className="mt-3">
-                        <Grid item xs={3}><Typography variant="subtitle1" className="font-weight-bold">Ghi chú: </Typography></Grid>
-                        <Grid item xs={9}><Typography variant="h6">{checkoutProps.note} </Typography></Grid>
+                        <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Ghi chú: </Typography></Grid>
+                        <Grid item xs={7} md={9}><Typography variant="h6">{checkoutProps.note} </Typography></Grid>
                     </Grid>
                 </Grid>
                 <Divider orientation="vertical" flexItem className="ml-6 mr-6" />
-                <Grid container item xs={4}>
+                <Grid container item xs={12} md={4}>
                     <div className="w-100">
                         <Typography variant="h6" className="font-weight-bold text-uppercase">
                             đơn hàng của bạn

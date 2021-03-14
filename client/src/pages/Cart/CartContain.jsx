@@ -96,11 +96,7 @@ export const Cart = () => {
         const newCompleted = new Set(completed);
         newCompleted.add(activeStep);
         setCompleted(newCompleted);
-        /**
-         * Sigh... it would be much nicer to replace the following if conditional with
-         * `if (!this.allStepsComplete())` however state is not set when we do this,
-         * thus we have to resort to not being very DRY.
-         */
+
         if (completed.size !== totalSteps()) {
             handleNext();
         }
@@ -111,9 +107,9 @@ export const Cart = () => {
     }
 
     return cart && cart.length > 0 ? (
-        <div className="pt-10 px-16 pb-10">
+        <div className="pt-md-10 px-md-16 pb-md-10 ">
             <Grid container justify="center" className="w-100">
-                <Stepper alternativeLabel  activeStep={activeStep} className="w-80">
+                <Stepper alternativeLabel  activeStep={activeStep} className="w-md-80">
                     {steps.map((label, index) => {
                         const stepProps = {};
                         const buttonProps = {};

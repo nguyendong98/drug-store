@@ -314,6 +314,7 @@ export const Header = () => {
                                     if (i === userProps.user.fullName.split(' ').length - 1) {
                                         return val;
                                     }
+                                    return 0;
                                 })}</Typography>
 
                             </StyledBadge>

@@ -30,12 +30,12 @@ export const CheckoutStep = ({cart, completeStep, checkout, handleBack, user}) =
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container direction="row" alignItems="flex-start" className="mb-10 mt-10">
-                <Grid container item xs={8}  className="pl-5" direction="column">
-                    <Typography variant="h6" className="font-weight-bold text-uppercase">
+            <Grid container direction="row" alignItems="flex-start" className="mb-10 mt-5 mt-md-10 pl-3 pl-md-5 pr-3 pr-md-0">
+                <Grid container item xs={12} md={8}   direction="column">
+                    <Typography variant="h6" className="font-weight-bold text-uppercase text-center">
                         thông tin giao hàng
                     </Typography>
-                    <Grid container item xs={12} className="mt-5" spacing={3}>
+                    <Grid container item  className="mt-5" spacing={3}>
                         <Grid item xs={6} className="w-100">
                             <TextField variant="outlined" label="Họ tên" name="fullName"
                                        inputRef={register({ required: true })}
@@ -118,7 +118,7 @@ export const CheckoutStep = ({cart, completeStep, checkout, handleBack, user}) =
                     </Grid>
                 </Grid>
                 <Divider orientation="vertical" flexItem className="ml-6 mr-6" />
-                <Grid container item xs={3}>
+                <Grid container item xs={12} md={3}>
                     <div className="w-100">
                         <Typography variant="subtitle1" className="text-uppercase font-weight-bold">
                             tổng số lượng

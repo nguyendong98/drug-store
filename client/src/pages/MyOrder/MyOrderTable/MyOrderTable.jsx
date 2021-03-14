@@ -20,7 +20,6 @@ export const MyOrderTable = ({myOrder}) => {
         }
     }
 
-    console.log(dataTable);
     return myOrder && (
         <>
             <MaterialTable

@@ -12,14 +12,13 @@ export const MyOrder = () => {
             dispatch(loadUser());
             dispatch(getOrder({pageSize: 1000, pageNumber: 1}));
         }
-    }, []);
+    }, [dispatch]);
     const user = useSelector(state =>  state.user.user);
     const orders = useSelector(state => state.order.orders);
     let myOrder = [];
     if (orders && orders.result && user) {
         myOrder = orders.result.filter(val => val.customer === user._id);
     }
-    console.log(myOrder);
     return (
         <>
             <div className="p-5">

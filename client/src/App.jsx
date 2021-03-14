@@ -42,7 +42,6 @@ const App = () => {
                       </Switch>
                       <Footer></Footer>
                   </div>
-              {/*</ThemeProvider>*/}
           </>
       </Router>
 
