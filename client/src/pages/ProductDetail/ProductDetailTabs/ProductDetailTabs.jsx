@@ -24,7 +24,7 @@ export const ProductDetailTabs = ({product, id}) => {
         setValue(newValue);
     };
     return !product ? <Spinner/> : (
-        <TabContext value={value}>
+        <TabContext value={value} className="w-100">
             <AppBar position="static" className="detail-tabs" color="primary">
                 <TabList onChange={handleChange} aria-label="simple tabs example">
                     <Tab label="Mô tả" value="1"/>

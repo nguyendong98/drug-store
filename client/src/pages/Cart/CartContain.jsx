@@ -13,6 +13,10 @@ import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import {getWarehouse} from "../../features/receipt";
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import {ThemeProvider} from '@material-ui/core/styles';
+import theme from '../../share/Theme/Theme';
+import HomeIcon from '@material-ui/icons/Home';
 
 export const Cart = () => {
     const dispatch = useDispatch();
@@ -107,7 +111,26 @@ export const Cart = () => {
     }
 
     return cart && cart.length > 0 ? (
-        <div className="pt-md-10 px-md-16 pb-md-10 ">
+        <div className="px-md-16 pb-md-10 ">
+            <Grid container alignItems="center" className="px-2 pt-5 pt-md-0 px-md-0">
+                <Grid item xs={12} className="mt-0 mt-md-6">
+                    <Breadcrumbs aria-label="breadcrumb">
+                        <Link to="/" exact="true">
+                            <ThemeProvider theme={theme}>
+                                <Typography variant="h6" className="flex-row justify-content-center align-items-center">
+                                    <HomeIcon  className="mr-2"/>
+                                    <span>Trang chủ</span>
+                                </Typography>
+                            </ThemeProvider>
+                        </Link>
+                        <Link to="/cart" exact="true">
+                            <Typography variant="h6" className="flex-row justify-content-center align-items-center">
+                                <span>Giỏ hàng</span>
+                            </Typography>
+                        </Link>
+                    </Breadcrumbs>
+                </Grid>
+            </Grid>
             <Grid container justify="center" className="w-100">
                 <Stepper alternativeLabel  activeStep={activeStep} className="w-md-80">
                     {steps.map((label, index) => {
@@ -131,9 +154,9 @@ export const Cart = () => {
 
             <Grid container>
                 {allStepsCompleted() ? (
-                    <Grid container item xs={12} direction="column" alignItems="center" justify="center">
+                    <Grid container item xs={12} className="px-5" direction="column" alignItems="center" justify="center">
                         <CheckCircleOutlineIcon style={{fontSize: '40px', color: 'green'}} />
-                        <Typography variant="h6" className="my-3">
+                        <Typography variant="h6" className="my-3 text-center">
                             Đặt hàng thành công, hãy check mail của bạn để theo dõi tiến độ đơn hàng
                         </Typography>
                         <Link to="/product" exact="true">
@@ -151,7 +174,7 @@ export const Cart = () => {
 
     ) : (
         <Grid container direction="column" justify="center" alignItems="center" className="pt-5 pb-16">
-            <Typography variant="h6" className="mt-3">Giỏ hàng hiện tại chưa có sản phẩm nào</Typography>
+            <Typography variant="h6" className="mt-3 px-5 text-center">Giỏ hàng hiện tại chưa có sản phẩm nào</Typography>
             <Link to="/product" exact="true">
                 <Button className="mb-16 mt-5" variant="outlined" color="primary">Tiếp tục mua sắm</Button>
             </Link>

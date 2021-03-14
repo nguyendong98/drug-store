@@ -1,4 +1,5 @@
 import React from "react";
+import './ProductContain.scss';
 import Grid from "@material-ui/core/Grid";
 import {ProductCard} from "../ProductCard/ProductCard";
 import {PaginationControlled} from "../../../share/Pagination/Pagination";
@@ -7,10 +8,10 @@ export const ProductContain = ({id, warehouse, profit, products}) => {
 
     return !products && products.result.length === 0 ? <Spinner /> : (
         <>
-            <Grid container  spacing={2} className="pl-0 mt-2 pl-md-8 pl-lg-8 " direction="row" alignItems="stretch" justify="flex-start">
+            <Grid container  spacing={2} className="pl-0 mt-2 pl-md-8 pl-lg-8 product-contain" direction="row" alignItems="stretch"  justify="center" justify-md-start="true">
                 {
                     products && products.result && products.result.map((val, i) => (
-                        <Grid item xs={12}  sm={5} md={5} lg={3} key={i}>
+                        <Grid item xs={10} sm={5} md={5} lg={3} key={i} >
                             <ProductCard data={val} warehouse={warehouse} profit={profit}></ProductCard>
                         </Grid>
                     ))

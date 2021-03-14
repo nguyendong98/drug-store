@@ -22,11 +22,11 @@ export const RelatedProduct = ({product, warehouse, profit}) => {
                 data.push(productSlide);
             }
             return data.map((val1, i) => (
-                <Grid direction="row" container key={i}>
+                <Grid direction="row" container key={i} className="px-4 py-4">
                     <Grid direction="row" container spacing={3}>
                         {
                             val1.map((val, i) => (
-                                <Grid xs={3} item key={i}>
+                                <Grid xs={12} sm={6} md={3} item key={i}>
                                     <ProductCard data={val} warehouse={warehouse} profit={profit}/>
                                 </Grid>
                             ))

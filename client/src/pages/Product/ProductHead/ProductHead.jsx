@@ -44,9 +44,7 @@ export const ProductHead = ({currentCategory, id}) => {
         <Grid container alignItems="center" className="px-5 pt-2 pb-0 py-md-5" justify="space-between">
 
             <Grid item xs={12} sm={12} md={8} className="mt-0 mt-md-6">
-
                     <Breadcrumbs aria-label="breadcrumb">
-
                         <Link to="/" exact="true" onClick={onChangeCurrentCategory}>
                             <ThemeProvider theme={theme}>
                                 <Typography variant="h6" className="flex-row justify-content-center align-items-center">
@@ -54,7 +52,6 @@ export const ProductHead = ({currentCategory, id}) => {
                                     <span>Trang chủ</span>
                                 </Typography>
                             </ThemeProvider>
-
                         </Link>
                         <Link to="/product" exact="true" onClick={onChangeCurrentCategory}>
                             <Typography variant="h6" className="flex-row justify-content-center align-items-center">
@@ -79,8 +76,6 @@ export const ProductHead = ({currentCategory, id}) => {
                                 </Link>
                             )
                         }
-
-
                     </Breadcrumbs>
 
             </Grid>

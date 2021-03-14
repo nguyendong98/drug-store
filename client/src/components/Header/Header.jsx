@@ -462,7 +462,7 @@ export const Header = () => {
                             }
                         </IconButton>
                         <IconButton aria-label="show 17 new notifications" color="inherit" className="mr-2">
-                            <Badge badgeContent={71} color="secondary">
+                            <Badge badgeContent='999+' color="secondary">
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>

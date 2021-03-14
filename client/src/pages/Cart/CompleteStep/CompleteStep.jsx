@@ -11,6 +11,9 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import {useDispatch} from "react-redux";
 import {createOrder} from "../../../features/order";
 import {removeCart} from "../../../features/cart";
+import {ThemeProvider} from '@material-ui/core/styles';
+import theme from '../../../share/Theme/Theme';
+import {Link} from 'react-router-dom';
 export const CompleteStep = ({checkoutProps, cart, completeStep}) => {
     const [onlinePay, setOnlinePay] = useState(false);
     const dispatch = useDispatch();
@@ -51,7 +54,7 @@ export const CompleteStep = ({checkoutProps, cart, completeStep}) => {
                     </Typography>
                     <Grid container className="mt-3">
                         <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Họ tên người nhận: </Typography></Grid>
-                        <Grid item xs={7} md={9}><Typography variant="h6">{checkoutProps.fullName} </Typography></Grid>
+                        <Grid item xs={7} md={9}><ThemeProvider theme={theme}><Typography variant="h6">{checkoutProps.fullName} </Typography></ThemeProvider></Grid>
                     </Grid>
                     <Grid container className="mt-3">
                         <Grid item xs={5} md={3}><Typography variant="subtitle1" className="font-weight-bold">Số điện thoại: </Typography></Grid>
@@ -71,9 +74,9 @@ export const CompleteStep = ({checkoutProps, cart, completeStep}) => {
                     </Grid>
                 </Grid>
                 <Divider orientation="vertical" flexItem className="ml-6 mr-6" />
-                <Grid container item xs={12} md={4}>
+                <Grid container item xs={12} md={4} className="mt-5 mt-md-0">
                     <div className="w-100">
-                        <Typography variant="h6" className="font-weight-bold text-uppercase">
+                        <Typography variant="h6" className="font-weight-bold text-uppercase text-center">
                             đơn hàng của bạn
                         </Typography>
                         <Grid container justify="space-between" className="mt-3">

@@ -8,6 +8,8 @@ import {createCartSuccess} from "../../../features/cart";
 import {useDispatch} from "react-redux";
 import {getInventory} from "../../../utils/function";
 import Chip from "@material-ui/core/Chip";
+import './DetailDescription.scss';
+import {setAlert} from '../../../features/alert';
 export const DetailDescription = ({product, warehouse, profit}) => {
     const dispatch = useDispatch();
     const addToCart = (data) => {
@@ -19,14 +21,14 @@ export const DetailDescription = ({product, warehouse, profit}) => {
         dispatch(createCartSuccess(product));
     }
     return product && (
-        <Grid container direction="row" justify="center" alignItems="center">
-            <Grid container item xs={12} sm={6} direction="row" justify="center">
-                <img src={`${productURL}/${product.image}`} alt="product-img"/>
+        <>
+            <Grid container item xs={12} sm={5} md={6} direction="row" justify="center">
+                <img src={`${productURL}/${product.image}`} className="detail-img" alt="product-img"/>
                 <i><Typography className="product-title" variant="h6" gutterBottom>
-                    Sản phẩm 100% chính hãng, mẫu mã thay đổi theo lô hàng
+                    Sản phẩm chính hãng, mẫu mã thay đổi theo lô hàng
                 </Typography></i>
             </Grid>
-            <Grid item xs={12} sm={6} >
+            <Grid item xs={12} sm={7} md={6} >
                 <Typography className="product-title" variant="h3" gutterBottom>
                     {product.name}
                 </Typography>
@@ -37,7 +39,10 @@ export const DetailDescription = ({product, warehouse, profit}) => {
                     <Button variant="contained" color="primary"
                             className="mr-5"
                             disabled={getInventory(warehouse, product._id) === 0 ? true : false}
-                            onClick={() => addToCart(product)}>
+                            onClick={() => {
+                                addToCart(product);
+                                dispatch(setAlert(true, 'Thêm vào giỏ thành công', 'success'))
+                            }}>
                         THÊM VÀO GIỎ
                     </Button>
                 </Grid>
@@ -52,6 +57,6 @@ export const DetailDescription = ({product, warehouse, profit}) => {
                 <Divider />
             </Grid>
 
-        </Grid>
+        </>
     )
 }

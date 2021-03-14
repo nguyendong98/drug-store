@@ -19,17 +19,13 @@ export const ProductDetail = ({match}) => {
     const warehouse = useSelector(state => state.receipt.warehouse);
     const profit = useSelector(state => state.product.profit);
     return (
-        <Grid container className="pt-5 px-16 pb-10">
+        <Grid container className="pt-5 px-5 px-md-16 pb-10">
             <Breadcrumb product={product}/>
-            <Grid item xs={12}>
-                <DetailDescription product={product} warehouse={warehouse} profit={profit}/>
-            </Grid>
-            <Grid item xs={12} className="mt-5 mb-8">
+            <DetailDescription product={product} warehouse={warehouse} profit={profit}/>
+            <Grid item  className="mt-5 mb-8 w-100">
                 <ProductDetailTabs  product={product} id={match.params.id}/>
             </Grid>
-            <Grid item xs={12}>
-                <RelatedProduct product={product} warehouse={warehouse} profit={profit}/>
-            </Grid>
+            <RelatedProduct product={product} warehouse={warehouse} profit={profit}/>
         </Grid>
     )
 }

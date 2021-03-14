@@ -28,13 +28,14 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
             index++;
         }
         dispatch(updateCart(dataUpdate));
-        dispatch(setAlert(true, 'Update cart success', 'success'));
+        dispatch(setAlert(true, 'Cập nhật giỏ hàng thành công', 'success'));
         setDisabled(true);
     }
     const [disabled, setDisabled] = useState(true);
     const isAuthenticated = useSelector(state => state.user.isAuthenticated)
     const onRemoveItemCart = (id) => {
         dispatch(removeCartItemSuccess(id));
+        dispatch(setAlert(true, 'Xóa item khỏi giỏ hàng thành công', 'success'))
     }
     const onNextStep = () => {
         if (!isAuthenticated) {
@@ -74,7 +75,7 @@ export const CartStep = ({cart, completeStep, warehouse}) => {
                                         <Grid><img className="image-cart mr-2" src={`${productURL}/${val.product.image}`} alt="img-product"/></Grid>
                                         <Grid item><Typography variant="body2">{val.product.name}</Typography></Grid>
                                     </Grid>
-                                    <Grid container item xs={3} md={2} alignItems="center">
+                                    <Grid container item xs={3} sm={2} md={2} alignItems="center">
                                         <Typography variant="body2" >{val.price.toLocaleString()} VND</Typography>
                                     </Grid>
                                     <Grid container item xs={2} md={2}  alignItems="center">

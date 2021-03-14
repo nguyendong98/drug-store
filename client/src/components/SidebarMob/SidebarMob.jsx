@@ -113,7 +113,7 @@ export const SidebarMob = ({anchor, open, close, cart, user}) => {
                     <List>
                         <ListItem button>
                             <ListItemIcon>
-                                <Badge badgeContent={71} color="secondary">
+                                <Badge badgeContent='999+' color="secondary">
                                     <NotificationsIcon />
                                 </Badge>
                             </ListItemIcon>

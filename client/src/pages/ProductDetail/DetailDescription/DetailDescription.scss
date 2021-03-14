@@ -2,3 +2,13 @@
   font-size: 30px;
   color: #555;
 }
+img.detail-img {
+  object-fit: contain;
+  width: 90%;
+  @media (max-width: 959.9px) {
+    width: 80% ;
+  }
+  @media (max-width: 599.9px) {
+    width: 60%;
+  }
+}

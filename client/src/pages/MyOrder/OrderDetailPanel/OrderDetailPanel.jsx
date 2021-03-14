@@ -3,8 +3,6 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 export const OrderDetailPanel = ({data}) => {
-
-    console.log(data);
     return (
         <div className="py-3 px-16">
             <Typography variant="subtitle1" gutterBottom>Tên người nhận hàng: {data.idOrderDetail && data.idOrderDetail.customerName}</Typography>
@@ -28,7 +26,6 @@ export const OrderDetailPanel = ({data}) => {
                    </Grid>
 
                     ))  : ''
-
             }
         </div>
     )
