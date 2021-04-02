@@ -16,15 +16,16 @@ import Twitter from './../../assets/images/twitter.png';
 import Typography from "@material-ui/core/Typography";
 import {connect, useDispatch, useSelector} from "react-redux";
 import {closeLogin, showRegister} from "../../features/show-dialog";
-import PropTypes from "prop-types";
-import {signIn} from "../../features/user";
-const Login = ({ signIn }) => {
+import {loadUser, loginSuccess, signIn} from "../../features/user";
+import GoogleLogin from 'react-google-login';
+import {setAlert} from '../../features/alert';
+const Login = () => {
     const { register, handleSubmit, errors } = useForm();
     const [showPass, setShowPass] = useState(false);
     const openLogin = useSelector(state => state.showDialog.isOpenLogin);
     const dispatch = useDispatch();
     const onSubmit = data => {
-        signIn(data);
+        dispatch(signIn(data))
     }
     const closeDialogLogin = () => {
         dispatch(closeLogin());
@@ -38,6 +39,17 @@ const Login = ({ signIn }) => {
     };
     const showDialogRegister = () => {
         dispatch(showRegister());
+    }
+    const googleSuccess = res => {
+        console.log(res)
+        dispatch(setAlert(true, 'Login success, wellcome you to DV pharmacy', 'success'));
+        // dispatch(loginSuccess(res.data.accessToken));
+        // dispatch(loadUser());
+        dispatch(closeLogin());
+    }
+
+    const googleFailure = errors => {
+        console.log(errors)
     }
     return (
         <>
@@ -100,7 +112,18 @@ const Login = ({ signIn }) => {
                         <Grid container direction="row" justify="center" alignItems="center" className="mt-2">
                             <a href="#facebook"><img src={FacebookImg} alt="facebook" className="login-social mr-2"/></a>
                             <a href="#twitter"><img src={Twitter} alt="twitter" className="login-social mr-2"/></a>
-                            <a href="#google"><img src={GoogleImg} alt="google" className="login-social mr-2"/></a>
+                            <GoogleLogin
+                                clientId="423649848449-p0sa3g2cttoh6ftvhbhpvi7q10eousb2.apps.googleusercontent.com"
+                                render={renderProps => (
+                                   <div onClick={renderProps.onClick} className="pointer"
+                                   >
+                                       <img src={GoogleImg} alt="google" className="login-social mr-2"/></div>
+
+                                )}
+                                onSuccess={googleSuccess}
+                                onFailure={googleFailure}
+                                cookiePolicy="single_host_origin"
+                            />
                         </Grid>
                         <Grid container direction="row" justify="center" alignItems="center" className="pt-4">
                             <Typography variant="body1" >No account yet? </Typography>
@@ -118,7 +141,4 @@ const Login = ({ signIn }) => {
 
 }
 
-Login.propTypes = {
-    signIn: PropTypes.func.isRequired,
-}
-export default connect(null, { signIn })(Login);
+export default Login;

@@ -23,7 +23,7 @@ const App = () => {
             setAuthToken(localStorage['x-auth-token']);
             dispatch(loadUser());
         }
-    }, [dispatch]);
+    }, [dispatch, localStorage['x-auth-token']]);
     return (
       <Router>
           <>

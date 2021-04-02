@@ -59,7 +59,7 @@ export const WorkShift = () => {
         setOpen(false);
     };
 
-    return workShifts && workShifts.length > 0 ?  (
+    return   (
         <>
             <WorkShiftForm open={openForm} closeDialogForm={onCloseDialogForm} />
             <div className="flex-row">
@@ -122,5 +122,5 @@ export const WorkShift = () => {
             </div>
         </>
 
-    ) : <Spinner />;
+    ) ;
 }

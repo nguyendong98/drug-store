@@ -18,7 +18,7 @@ export const DashBoardAdmin = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getOrder({pageSize: 1000, pageNumber: 1}));
-        dispatch(getAllUser({pageSize: 1000, pageNumber: 1, idRole: '5f8c5363c931110a4acf9b54'}));
+        dispatch(getAllUser({pageSize: 1000, pageNumber: 1, idRole: '60352e3b31071b084cbe4db7'}));
         dispatch(getAllFeedBack({pageSize: 1000, pageNumber: 1}))
 
     }, [dispatch]);

@@ -14,12 +14,10 @@ const slice = createSlice({
     },
     reducers: {
         loginSuccess: (state, action) =>  {
-            state.loading = false;
             localStorage.setItem('x-auth-token', action.payload);
             state.isAuthenticated = true;
         },
         userLoaded: (state, action) => {
-            state.loading = false;
             state.user = action.payload;
             state.isAuthenticated = true;
         },

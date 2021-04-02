@@ -25,7 +25,7 @@ export const CalendarForm = ({open, closeDialogForm, workShifts}) => {
             setAuthToken(localStorage['x-auth-token']);
             dispatch(loadUser());
         }
-        dispatch(getAllUser({pageSize: 1000, pageNumber: 1, idRole: '5f8c5388c931110a4acf9b69'}));
+        dispatch(getAllUser({pageSize: 1000, pageNumber: 1, idRole: '60352e5531071b084cbe4db8'}));
     }, [dispatch]);
     const users = useSelector(state => state.user.users);
     const [workShift, setWorkShift] = useState(workShifts && workShifts.length > 0 ? workShifts[0]._id : '');

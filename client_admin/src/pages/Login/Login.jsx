@@ -86,6 +86,7 @@ export default function SignIn({history}) {
                         fullWidth
                         id="email"
                         label="Email Address"
+                        defaultValue="admin"
                         name="username"
                         inputRef={register({ required: true })}
                         autoFocus
@@ -97,6 +98,7 @@ export default function SignIn({history}) {
                         required
                         fullWidth
                         name="password"
+                        defaultValue="passwordadmin"
                         label="Password"
                         InputProps={{
                             endAdornment: (

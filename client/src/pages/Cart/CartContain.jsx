@@ -170,8 +170,6 @@ export const Cart = () => {
                 )}
             </Grid>
         </div>
-
-
     ) : (
         <Grid container direction="column" justify="center" alignItems="center" className="pt-5 pb-16">
             <Typography variant="h6" className="mt-3 px-5 text-center">Giỏ hàng hiện tại chưa có sản phẩm nào</Typography>
