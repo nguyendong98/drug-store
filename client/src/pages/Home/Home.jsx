@@ -1,10 +1,11 @@
 import React from "react";
 import BannerHero from "../../components/BannerHero/BannerHero";
 
-export const Home = () => {
+function Home() {
     return (
         <>
             <BannerHero></BannerHero>
         </>
     )
 }
+export default Home

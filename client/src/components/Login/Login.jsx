@@ -14,9 +14,9 @@ import GoogleImg from './../../assets/images/google.jpg';
 import FacebookImg from './../../assets/images/facebook.png';
 import Twitter from './../../assets/images/twitter.png';
 import Typography from "@material-ui/core/Typography";
-import {connect, useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {closeLogin, showRegister} from "../../features/show-dialog";
-import {loadUser, loginSuccess, signIn} from "../../features/user";
+import {signIn} from "../../features/user";
 import GoogleLogin from 'react-google-login';
 import {setAlert} from '../../features/alert';
 const Login = () => {

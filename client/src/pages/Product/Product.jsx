@@ -7,7 +7,7 @@ import {getCategoryCurrent, getProduct, getProductTree, getProfit} from "../../f
 import {useDispatch, useSelector} from "react-redux";
 import {getWarehouse} from "../../features/receipt";
 import {Spinner} from '../../share/Spinner/Spinner';
-export const Product = ({match}) => {
+function Product({ match }) {
     const dispatch = useDispatch();
     useEffect(() => {
         if (match.params.id) {
@@ -47,3 +47,4 @@ export const Product = ({match}) => {
         </>
     ) : <Spinner />
 }
+export default Product

@@ -18,7 +18,7 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import theme from '../../share/Theme/Theme';
 import HomeIcon from '@material-ui/icons/Home';
 
-export const Cart = () => {
+function Cart() {
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart.cartDetail);
     const checkout = JSON.parse(sessionStorage.getItem('checkout'));
@@ -180,3 +180,4 @@ export const Cart = () => {
     );
 
 }
+export default Cart

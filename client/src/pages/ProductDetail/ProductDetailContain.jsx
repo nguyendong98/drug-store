@@ -8,7 +8,7 @@ import {RelatedProduct} from "./RelatedProduct/RelatedProduct";
 import {Breadcrumb} from "./Breadcrumb/Breadcrumb";
 import {getWarehouse} from "../../features/receipt";
 
-export const ProductDetail = ({match}) => {
+function ProductDetail({match}) {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProductDetail(match.params.id));
@@ -29,3 +29,4 @@ export const ProductDetail = ({match}) => {
         </Grid>
     )
 }
+export default ProductDetail

@@ -4,7 +4,7 @@ import {getOrder} from "../../features/order";
 import setAuthToken from "../../utils/setAuthToken";
 import {loadUser} from "../../features/user";
 import {MyOrderTable} from "./MyOrderTable/MyOrderTable";
-export const MyOrder = () => {
+function MyOrder() {
     const dispatch = useDispatch();
     useEffect(() => {
         if (localStorage['x-auth-token']) {
@@ -27,3 +27,4 @@ export const MyOrder = () => {
         </>
     )
 }
+export default MyOrder
