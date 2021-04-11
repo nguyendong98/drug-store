@@ -15,6 +15,7 @@ import {createCartSuccess} from "../../../features/cart";
 import {getInventory} from "../../../utils/function";
 import Chip from "@material-ui/core/Chip";
 import {setAlert} from '../../../features/alert';
+import LazyLoad from 'react-lazyload';
 
 
 export const ProductCard = ({data, warehouse, profit}) => {
@@ -31,7 +32,9 @@ export const ProductCard = ({data, warehouse, profit}) => {
     return (
         <Card>
             <Grid container justify="center">
-                <img style={{cursor: 'pointer'}} className="product-img" src={`${productURL}/${data.image}`} alt="product-img"/>
+                <LazyLoad height={200}>
+                    <img style={{cursor: 'pointer'}} className="product-img" src={`${productURL}/${data.image}`} alt="product-img"/>
+                </LazyLoad>
             </Grid>
 
 

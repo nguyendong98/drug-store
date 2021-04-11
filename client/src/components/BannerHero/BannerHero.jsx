@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import slider1 from './../../assets/images/slider1.jpg';
 import slider2 from './../../assets/images/slider2.jpg';
-
+import LazyLoad from 'react-lazyload';
 
 
 
@@ -29,10 +29,15 @@ const BannerHero = () => (
         {/*    <img alt="img6" src="https://d314ueg0lpx3nd.cloudfront.net/banner/584a6e0970f-vitamincdweb.jpg"/>*/}
         {/*</div>*/}
         <div>
-            <img alt="img4" src={slider1} />
+            <LazyLoad height={200}>
+                <img alt="img4" src={slider1} />
+
+            </LazyLoad>
         </div>
         <div>
-            <img alt="img5" src={slider2} />
+            <LazyLoad height={200}>
+                <img alt="img5" src={slider2} />
+            </LazyLoad>
         </div>
     </Carousel>
 );

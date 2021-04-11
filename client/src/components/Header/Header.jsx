@@ -38,6 +38,7 @@ import './Header.scss';
 import {getAllProductCategoryGroup, getProductCategory} from "../../features/product";
 import {getCartSuccess, removeCartItemSuccess} from "../../features/cart";
 import {SidebarMob} from '../SidebarMob/SidebarMob';
+import LazyLoad from 'react-lazyload';
 
 //STYLE
 const useStyles = makeStyles((theme) => ({
@@ -482,7 +483,9 @@ export const Header = () => {
                                     }}
                                     variant="dot"
                                 >
-                                    <Avatar className="img-avt mr-2" src={`${avatarURL}/${userProps.user.avatar}`} alt={userProps.user.fullName} />
+                                    <LazyLoad height={100}>
+                                        <Avatar className="img-avt mr-2" src={`${avatarURL}/${userProps.user.avatar}`} alt={userProps.user.fullName} />
+                                    </LazyLoad>
 
                                 </StyledBadge>
                                 <KeyboardArrowDown/>
