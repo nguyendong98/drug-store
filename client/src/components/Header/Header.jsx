@@ -87,7 +87,7 @@ const StyledBadge = withStyles((theme) => ({
     },
 }))(Badge);
 //--------------------------------------------------------------------------------------------
-export const Header = () => {
+export default function Header() {
     const dispatch = useDispatch();
 
     //effect

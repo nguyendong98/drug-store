@@ -1,10 +1,9 @@
 import React from 'react';
-const Home = React.lazy( () =>  import('../../pages/Home/Home'));
-const Product = React.lazy( () =>  import('../../pages/Product/Product'));
-const ProductDetail = React.lazy( () =>  import('../../pages/ProductDetail/ProductDetailContain'));
-const Cart = React.lazy( () =>  import('../../pages/Cart/CartContain'));
-const MyOrder = React.lazy( () =>  import('../../pages/MyOrder/MyOrder'));
-const NotFound = React.lazy( () =>  import('../../pages/NotFound/NotFound'));
+const Home = React.lazy( () =>  import('pages/Home/Home'));
+const Product = React.lazy( () =>  import('pages/Product/Product'));
+const ProductDetail = React.lazy( () =>  import('pages/ProductDetail/ProductDetailContain'));
+const Cart = React.lazy( () =>  import('pages/Cart/CartContain'));
+const MyOrder = React.lazy(() => import('pages/MyOrder/MyOrder'));
 
 const routes = [
     {
@@ -34,11 +33,7 @@ const routes = [
     {
         path: '/my-order',
         component: MyOrder
-    },
-    {
-        path: '*',
-        component: NotFound
-    },
+    }
 ]
 
 export default routes

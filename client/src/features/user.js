@@ -56,10 +56,10 @@ export const registerAccount = (data) => async dispatch => {
 export const signIn = (data) => async dispatch => {
     try {
         const res = await api.post('/auth/account/sign-in', data);
-        dispatch(setAlert(true, 'Login success, wellcome you to DV pharmacy', 'success'));
+        dispatch(setAlert(true, 'Login success, welcome you to DV pharmacy', 'success'));
         dispatch(loginSuccess(res.data.accessToken));
-        dispatch(loadUser());
-        dispatch(closeLogin());
+        dispatch(loadUser);
+        dispatch(closeLogin);
     } catch (e) {
         dispatch(setAlert(true, 'Login fail', 'error'));
         throw e;
