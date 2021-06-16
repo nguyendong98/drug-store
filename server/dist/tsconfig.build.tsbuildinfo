@@ -3112,7 +3112,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/statistical/statistical.service.ts": {
-        "version": "e44e8cfcd7b9ea1512a164d30b7bb4f8ada769f8ebea9037605b6a771f286027",
+        "version": "4f9efffde01891c7bcbf37d75a4ebc532a00c67d8617fc7424da4e1e76af9cb6",
         "signature": "c0ba396e2d445838c02381f28e7005d787f9ebfa244a19926f29e5473d99830a",
         "affectsGlobalScope": false
       },
@@ -9055,7 +9055,6 @@
       "../src/modules/receipt/receipt.service.ts",
       "../src/modules/statistical/statistical.controller.ts",
       "../src/modules/statistical/statistical.module.ts",
-      "../src/modules/statistical/statistical.service.ts",
       "../src/modules/time-keeping/dto/time-keeping.credentials.dto.ts",
       "../src/modules/time-keeping/interface/time-keeping.interface.ts",
       "../src/modules/time-keeping/time-keeping.controller.ts",
