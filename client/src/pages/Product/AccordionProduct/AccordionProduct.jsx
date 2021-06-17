@@ -7,8 +7,8 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Grid from "@material-ui/core/Grid";
 import "./AccordionProduct.scss";
 import {Link} from "react-router-dom";
-import {Spinner} from "../../../share/Spinner/Spinner";
-export const AccordionProduct = ({id, productProps}) => {
+import Spinner from "share/Spinner/Spinner";
+export const AccordionProduct = ({ id, productProps }) => {
 
     const arrBoolean = [];
     for (let i=0; i < 10; i++) {

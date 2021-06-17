@@ -18,7 +18,7 @@ import {setAlert} from '../../../features/alert';
 import LazyLoad from 'react-lazyload';
 
 
-export const ProductCard = ({data, warehouse, profit}) => {
+export const ProductCard = ({ data, warehouse, profit }) => {
     const dispatch = useDispatch();
     const addToCart = (data) => {
         const product = {
@@ -33,7 +33,7 @@ export const ProductCard = ({data, warehouse, profit}) => {
         <Card>
             <Grid container justify="center">
                 <LazyLoad height={200}>
-                    <img style={{cursor: 'pointer'}} className="product-img" src={`${productURL}/${data.image}`} alt="product-img"/>
+                    <img className="product-img pointer" src={`${productURL}/${data.image}`} alt="product-img" />
                 </LazyLoad>
             </Grid>
 

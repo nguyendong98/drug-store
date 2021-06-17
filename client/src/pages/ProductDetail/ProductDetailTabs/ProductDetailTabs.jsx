@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import 'ProductDetailTabs.scss';
+import './ProductDetailTabs.scss';
 import TabContext from "@material-ui/lab/TabContext";
 import AppBar from "@material-ui/core/AppBar";
 import TabList from "@material-ui/lab/TabList";

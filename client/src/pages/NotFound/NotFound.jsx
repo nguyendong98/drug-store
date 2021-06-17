@@ -7,6 +7,7 @@ export default function NotFound() {
         <Grid container direction="row" justify="center" alignItems="center">
             <Typography variant="h1">
                 ERROR-404
+                dassadsads
             </Typography>
         </Grid>
     )

@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
-import spinner from '../../assets/images/spinner.gif';
+import React from 'react';
 import './Spinner.scss'
+import spinner from 'assets/images/spinner.gif';
+
 export default function Spinner() {
     return (
-        <Fragment>
+        <>
             <div className="spinner">
                 <img
                     src={spinner}
@@ -11,6 +12,6 @@ export default function Spinner() {
                     alt='Loading...'
                 />
             </div>
-        </Fragment>
+        </>
     )
 }

@@ -1,11 +1,13 @@
 import React from "react";
+import {useDispatch, useSelector} from 'react-redux';
+
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
-import {connect, useDispatch} from 'react-redux';
-import {closeAlert} from "../../features/alert";
+import {closeAlert} from "features/alert";
 
-const MessageNotify = ({alert}) => {
+export default function MessageNotify() {
     const dispatch = useDispatch();
+    const alert = useSelector(state => state.alert)
     const close = () => dispatch(closeAlert());
     return alert && alert.open && (
         <Snackbar
@@ -20,9 +22,4 @@ const MessageNotify = ({alert}) => {
         </Snackbar>
     )
 }
-const mapStateToProps = state => {
-    return {
-        alert: state.alert
-    }
-}
-export default connect(mapStateToProps, null)(MessageNotify)
+

@@ -1,9 +1,11 @@
 import React from "react";
 import './ProductContain.scss';
+
 import Grid from "@material-ui/core/Grid";
+
 import {ProductCard} from "../ProductCard/ProductCard";
-import {PaginationControlled} from "../../../share/Pagination/Pagination";
-import {Spinner} from "../../../share/Spinner/Spinner";
+import {PaginationControlled} from "share/Pagination/Pagination";
+import Spinner from "share/Spinner/Spinner";
 export const ProductContain = ({id, warehouse, profit, products}) => {
 
     return !products && products.result.length === 0 ? <Spinner /> : (
