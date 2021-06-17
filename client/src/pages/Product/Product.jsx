@@ -1,13 +1,14 @@
 import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+
 import Grid from "@material-ui/core/Grid";
 import {ProductSideBar} from "./ProductSideBar/ProductSideBar"
 import {ProductContain} from "./ProductContain/ProductContain";
 import {ProductHead} from "./ProductHead/ProductHead";
-import {getCategoryCurrent, getProduct, getProductTree, getProfit} from "../../features/product";
-import {useDispatch, useSelector} from "react-redux";
-import {getWarehouse} from "../../features/receipt";
-import {Spinner} from '../../share/Spinner/Spinner';
-function Product({ match }) {
+import {getCategoryCurrent, getProduct, getProductTree, getProfit} from "features/product";
+import {getWarehouse} from "features/receipt";
+import Spinner from 'share/Spinner/Spinner';
+export default function Product({ match }) {
     const dispatch = useDispatch();
     useEffect(() => {
         if (match.params.id) {
@@ -47,4 +48,3 @@ function Product({ match }) {
         </>
     ) : <Spinner />
 }
-export default Product

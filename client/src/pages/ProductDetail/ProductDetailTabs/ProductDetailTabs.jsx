@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from "react";
-import "./ProductDetailTabs.scss";
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import 'ProductDetailTabs.scss';
 import TabContext from "@material-ui/lab/TabContext";
 import AppBar from "@material-ui/core/AppBar";
 import TabList from "@material-ui/lab/TabList";
 import Tab from "@material-ui/core/Tab";
 import TabPanel from "@material-ui/lab/TabPanel";
 import Paper from "@material-ui/core/Paper";
-import {Spinner} from "../../../share/Spinner/Spinner";
+import Spinner from 'share/Spinner/Spinner';
 import Typography from "@material-ui/core/Typography";
 import {FeedbackTab} from "../FeedbackTab/FeedbackTab";
 import {DescriptionTab} from "../DescriptionTab/DescriptionTab";
-import {useDispatch, useSelector} from "react-redux";
-import {getAllFeedBack} from "../../../features/feedback";
+import {getAllFeedBack} from 'features/feedback';
 
 export const ProductDetailTabs = ({product, id}) => {
     const dispatch = useDispatch();

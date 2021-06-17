@@ -4,6 +4,7 @@ const Product = React.lazy( () =>  import('pages/Product/Product'));
 const ProductDetail = React.lazy( () =>  import('pages/ProductDetail/ProductDetailContain'));
 const Cart = React.lazy( () =>  import('pages/Cart/CartContain'));
 const MyOrder = React.lazy(() => import('pages/MyOrder/MyOrder'));
+const NotFound = React.lazy(() => import('pages/NotFound/NotFound'))
 
 const routes = [
     {
@@ -33,7 +34,13 @@ const routes = [
     {
         path: '/my-order',
         component: MyOrder
+    },
+    {
+        path: '*',
+        component: NotFound
     }
+
+
 ]
 
 export default routes

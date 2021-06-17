@@ -9,6 +9,5 @@ export default function NotFound() {
                 ERROR-404
             </Typography>
         </Grid>
-
     )
 }
