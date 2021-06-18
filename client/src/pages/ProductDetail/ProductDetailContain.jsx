@@ -2,13 +2,13 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import {DetailDescription} from "./DetailDescription/DetailDescription";
-import {getProductDetail, getProfit} from "../../features/product";
+import {getProductDetail, getProfit} from "features/product";
 import {ProductDetailTabs} from "./ProductDetailTabs/ProductDetailTabs";
 import {RelatedProduct} from "./RelatedProduct/RelatedProduct";
 import {Breadcrumb} from "./Breadcrumb/Breadcrumb";
-import {getWarehouse} from "../../features/receipt";
+import {getWarehouse} from "features/receipt";
 
-function ProductDetail({match}) {
+export default function ProductDetail({match}) {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProductDetail(match.params.id));
@@ -29,4 +29,3 @@ function ProductDetail({match}) {
         </Grid>
     )
 }
-export default ProductDetail

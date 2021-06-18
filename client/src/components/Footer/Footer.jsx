@@ -1,11 +1,13 @@
 import React from 'react';
-import Grid from "@material-ui/core/Grid";
 import './Footer.scss';
+
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
+
 export default function Footer() {
     return (
         <Grid container className="footer px-3 py-8">
@@ -75,11 +77,10 @@ export default function Footer() {
                              className="our-payment"/>
                         <img src="https://d2y2l77dht9e8d.cloudfront.net/web-assets/dist/e9445364.svg" alt="Rupay"
                              className="our-payment"/>
-                        <img src="https://d2y2l77dht9e8d.cloudfront.net/web-assets/dist/6e09c713.svg" alt="Diners"
-                             className="our-payment"/>
                     </Grid>
-                    <Grid item className="mt-sm-3 mt-md-1"><Typography variant="subtitle1">© 2020 DV Pharmacy. All
-                        Rights Reserved</Typography></Grid>
+                    <Grid item className="mt-sm-3 mt-md-1">
+                        <Typography variant="subtitle1">© 2020 DV Pharmacy. All Rights Reserved</Typography>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

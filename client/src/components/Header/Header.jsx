@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './Header.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -34,7 +35,6 @@ import Register from "../Register/Register";
 import {showLogin} from "../../features/show-dialog";
 import {signOut} from "../../features/user";
 import {avatarURL, productURL} from "../../utils/imageURL";
-import './Header.scss';
 import {getAllProductCategoryGroup, getProductCategory} from "../../features/product";
 import {getCartSuccess, removeCartItemSuccess} from "../../features/cart";
 import {SidebarMob} from '../SidebarMob/SidebarMob';
