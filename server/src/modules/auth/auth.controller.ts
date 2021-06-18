@@ -73,12 +73,18 @@ export class AuthController {
         return this.authService.signIn(req.user);
     }
 
+    @Post('account/sign-in/social')
+    @UseGuards(JwtAuthGuard)
+    @Post('account/sign-in')
+    async loginSocial(@Body (ValidationPipe) loginDto: LoginCredentialsDto, @Request() req) {
+        return this.authService.loginSocial(req.user);
+    }
+
     @UseGuards(JwtAuthGuard)
     @Get('me')
     getMe(@Request() req) {
         return this.authService.getMe(req.user);
     }
-
 
     @hasRoles('admin')
     @UseGuards(JwtAuthGuard, RolesGuard)
@@ -89,7 +95,6 @@ export class AuthController {
         pageNumber?: number,
         pageSize?: number
     }): Promise<any> {
-
         return this.authService.getAll(query);
     }
 

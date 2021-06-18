@@ -1,7 +1,7 @@
 import {ConflictException, Injectable, NotFoundException} from '@nestjs/common';
 import {InjectConnection, InjectModel} from '@nestjs/mongoose';
 import {Connection, Model} from 'mongoose';
-import {Account, AccountResponse, Role} from './interface/auth.interface';
+import {Account, AccountResponse, Role, SocialAccount} from './interface/auth.interface';
 import {AuthCredentialsDto} from './dto/auth.credentials.dto';
 import * as bcrypt from 'bcrypt';
 import * as gravatar from 'gravatar';
@@ -100,7 +100,6 @@ export class AuthService {
 
     async validateUser(username: string, pass: string): Promise<Account> {
         const user = await this.accountModel.findOne({ username });
-
         if (!user) {
             return null;
         }
@@ -113,9 +112,37 @@ export class AuthService {
 
         return null;
     }
+    // @route    POST auth/account/sign-in
+    // @desc     sign-in social
+    // @access   public
+
+    async loginSocial(payload: SocialAccount) {
+        const { username, password, avatar, email, fullName, accessToken } = payload;
+        const user = await this.accountModel.findOne({ email });
+        const roleId = await this.roleModel.findOne({description: 'staff'});
+        if (!user) {
+            const newAccount = new this.accountModel({
+                fullName,
+                username,
+                password,
+                email,
+                avatar,
+                roleId
+            });
+            try {
+                await newAccount.save();
+            } catch (e) {
+                throw e;
+            }
+        }
+        return { accessToken }
+
+    }
+
     // @route    GET auth/me
     // @desc     get profile
     // @access   private
+
     async getMe(req): Promise<Account> {
         try {
             const res = await this.accountModel.findById(req._id)
@@ -132,7 +159,7 @@ export class AuthService {
     // @access   public
     async updateUserAvatar(id: string, fileName: string): Promise<AccountResponse> {
         try {
-            const res = await this.accountModel.findByIdAndUpdate(id, {
+            await this.accountModel.findByIdAndUpdate(id, {
                 avatar: fileName
             }, {
                 new: true,

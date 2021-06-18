@@ -19,3 +19,11 @@ export interface Account extends Document {
 export interface AccountResponse{
     readonly effectArrows: number;
 }
+export interface SocialAccount extends Document{
+    readonly email: string;
+    readonly username: string;
+    readonly password: string;
+    readonly fullName: string;
+    readonly avatar: string;
+    readonly accessToken: string;
+}

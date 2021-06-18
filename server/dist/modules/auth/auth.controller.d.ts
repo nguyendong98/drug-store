@@ -12,6 +12,9 @@ export declare class AuthController {
     signIn(loginDto: LoginCredentialsDto, req: any): Promise<{
         accessToken: string;
     }>;
+    loginSocial(loginDto: LoginCredentialsDto, req: any): Promise<{
+        accessToken: string;
+    }>;
     getMe(req: any): Promise<import("./interface/auth.interface").Account>;
     getAllAccount(query: {
         idRole?: string;

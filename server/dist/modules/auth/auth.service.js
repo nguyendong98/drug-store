@@ -107,6 +107,28 @@ let AuthService = class AuthService {
         }
         return null;
     }
+    async loginSocial(payload) {
+        const { username, password, avatar, email, fullName, accessToken } = payload;
+        const user = await this.accountModel.findOne({ email });
+        const roleId = await this.roleModel.findOne({ description: 'staff' });
+        if (!user) {
+            const newAccount = new this.accountModel({
+                fullName,
+                username,
+                password,
+                email,
+                avatar,
+                roleId
+            });
+            try {
+                await newAccount.save();
+            }
+            catch (e) {
+                throw e;
+            }
+        }
+        return { accessToken };
+    }
     async getMe(req) {
         try {
             const res = await this.accountModel.findById(req._id)
@@ -120,7 +142,7 @@ let AuthService = class AuthService {
     }
     async updateUserAvatar(id, fileName) {
         try {
-            const res = await this.accountModel.findByIdAndUpdate(id, {
+            await this.accountModel.findByIdAndUpdate(id, {
                 avatar: fileName
             }, {
                 new: true,

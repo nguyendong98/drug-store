@@ -1622,8 +1622,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/interface/auth.interface.ts": {
-        "version": "5ce5020c036f92bbf656ebd22a8c91c1cac0b2fe580f09e9fb76679f376afba5",
-        "signature": "4794b5850df3c154507a7696e21baddb50f3655288a615c3f9fd8daac651f04b",
+        "version": "a4ae757b0632639ab0a9e9da616248427fe07a2d24d85383f1e247c5323c5494",
+        "signature": "97a91419a8c3a1102bae55e8e5f7dd8132b85c74874711ebd37b505ad4003dd2",
         "affectsGlobalScope": false
       },
       "../node_modules/class-validator/types/validation/validationerror.d.ts": {
@@ -2467,8 +2467,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/auth.service.ts": {
-        "version": "bb05a034f7dff6dce9fd10b7925669e1c1732934715be371ad9fe0d8c6a9f6e5",
-        "signature": "5532f8fb9cf0c44113cfd4020b7f7b42504af082b265ab28a0b873366bb75b8e",
+        "version": "c065fbba3fd017a95fc218f09eccfa9ba4226cead7e982c952ab3172bebaf821",
+        "signature": "8ac9f751d65b26141bc1574d32dac7e170ecb56b4b01a785da45b33464c5cbf6",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/passport/dist/abstract.strategy.d.ts": {
@@ -2857,8 +2857,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/auth.controller.ts": {
-        "version": "514f4d97bac5ee6cb854da692bb6d7b92804b7e30c0b41732f83f881b59745b2",
-        "signature": "be669f7fc7d471c28f80ce805fff6472ecd1c04495f851385d7a248b98c1153c",
+        "version": "d6c6e157ef60fdafb14577a0a655853b17cee2c29f80665b2dcc844d923a1a71",
+        "signature": "4cc15a40e8e93b216a6f802d77e401d02fc1910745d97989c20ea86795dc6905",
         "affectsGlobalScope": false
       },
       "../src/modules/auth/auth.schema.ts": {
@@ -2882,12 +2882,12 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/strategies/jwt-auth.strategy.ts": {
-        "version": "b6ce2960f6e946817c49e4f5cf5cd6fb53a891e17fb068bdd661903999729f88",
+        "version": "acb088c354a0e3f8e0d94e803d4ef620db3504aad0329c006020ceea6e8e2254",
         "signature": "f27231661a1d4bbe19510394d255cc0e7c63216e5ec42c1bf7973120d9ab6a7e",
         "affectsGlobalScope": false
       },
       "../src/modules/auth/auth.module.ts": {
-        "version": "231a85b9b7c753b28f9eecc8796ee23b6e6da1976b95dc212c4fd6cbe814afad",
+        "version": "0e47a7416bebe4931cfad89b163593ac40650a33e7c51446c0bc17ed16b00414",
         "signature": "2e5d258cf85349b02b015c3f1b8873c152d182c3819a7ccc3aff16fc3037a5fc",
         "affectsGlobalScope": false
       },
@@ -9055,6 +9055,7 @@
       "../src/modules/receipt/receipt.service.ts",
       "../src/modules/statistical/statistical.controller.ts",
       "../src/modules/statistical/statistical.module.ts",
+      "../src/modules/statistical/statistical.service.ts",
       "../src/modules/time-keeping/dto/time-keeping.credentials.dto.ts",
       "../src/modules/time-keeping/interface/time-keeping.interface.ts",
       "../src/modules/time-keeping/time-keeping.controller.ts",

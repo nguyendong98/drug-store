@@ -58,6 +58,9 @@ let AuthController = class AuthController {
     async signIn(loginDto, req) {
         return this.authService.signIn(req.user);
     }
+    async loginSocial(loginDto, req) {
+        return this.authService.loginSocial(req.user);
+    }
     getMe(req) {
         return this.authService.getMe(req.user);
     }
@@ -97,6 +100,15 @@ __decorate([
     __metadata("design:paramtypes", [login_credentials_dto_1.LoginCredentialsDto, Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "signIn", null);
+__decorate([
+    common_1.Post('account/sign-in/social'),
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    common_1.Post('account/sign-in'),
+    __param(0, common_1.Body(common_1.ValidationPipe)), __param(1, common_1.Request()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [login_credentials_dto_1.LoginCredentialsDto, Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "loginSocial", null);
 __decorate([
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     common_1.Get('me'),

@@ -1,29 +1,31 @@
 import React, {useState} from 'react';
 import './Login.scss';
+import {useDispatch, useSelector} from "react-redux";
+import {useForm} from 'react-hook-form';
+import GoogleLogin from 'react-google-login';
+
 import Dialog  from '@material-ui/core/Dialog';
 import TextField from '@material-ui/core/TextField';
 import DialogContent from '@material-ui/core/DialogContent';
 import {AccountCircle, Lock, Visibility, VisibilityOff} from '@material-ui/icons';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
-import {useForm} from 'react-hook-form';
 import Alert from '@material-ui/lab/Alert';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import GoogleImg from './../../assets/images/google.jpg';
-import FacebookImg from './../../assets/images/facebook.png';
-import Twitter from './../../assets/images/twitter.png';
 import Typography from "@material-ui/core/Typography";
-import {useDispatch, useSelector} from "react-redux";
-import {closeLogin, showRegister} from "../../features/show-dialog";
-import {signIn} from "../../features/user";
-import GoogleLogin from 'react-google-login';
-import {setAlert} from '../../features/alert';
-const Login = () => {
+import {closeLogin, showRegister} from "features/show-dialog";
+import {signIn} from "features/user";
+import {setAlert} from 'features/alert';
+import GoogleImg from 'assets/images/google.jpg';
+import FacebookImg from 'assets/images/facebook.png';
+import Twitter from 'assets/images/twitter.png';
+export default function Login() {
+    const dispatch = useDispatch();
     const { register, handleSubmit, errors } = useForm();
     const [showPass, setShowPass] = useState(false);
     const openLogin = useSelector(state => state.showDialog.isOpenLogin);
-    const dispatch = useDispatch();
+
     const onSubmit = data => {
         dispatch(signIn(data))
     }
@@ -136,9 +138,6 @@ const Login = () => {
                 </DialogContent>
             </Dialog>
         </>
-
     )
-
 }
 
-export default Login;
