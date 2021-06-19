@@ -97,8 +97,41 @@ export class AuthService {
             accessToken: this.jwtService.sign(payload),
         };
     }
+    // @route    POST auth/account/sign-in/social
+    // @desc     sign-in social
+    // @access   public
+
+    async  loginSocial(payload: any) {
+        console.log(payload)
+        const { username, avatar, email, fullName } = payload;
+        const user = await this.accountModel.findOne({ email });
+        const roleId = await this.roleModel.findOne({description: 'staff'});
+        if (!user) {
+            const newAccount = new this.accountModel({
+                fullName,
+                username,
+                email,
+                avatar,
+                roleId
+            });
+            try {
+                await newAccount.save();
+                const payload = { username: newAccount.username, sub: newAccount._id, roleId: newAccount.roleId };
+                return {
+                    accessToken: this.jwtService.sign(payload),
+                };
+            } catch (e) {
+                throw e;
+            }
+        }
+        const p = { username: user.username, sub: user._id, roleId: user.roleId };
+        return {
+            accessToken: this.jwtService.sign(p),
+        };
+    }
 
     async validateUser(username: string, pass: string): Promise<Account> {
+
         const user = await this.accountModel.findOne({ username });
         if (!user) {
             return null;
@@ -109,35 +142,9 @@ export class AuthService {
         if (valid) {
             return user;
         }
-
         return null;
     }
-    // @route    POST auth/account/sign-in
-    // @desc     sign-in social
-    // @access   public
 
-    async loginSocial(payload: SocialAccount) {
-        const { username, password, avatar, email, fullName, accessToken } = payload;
-        const user = await this.accountModel.findOne({ email });
-        const roleId = await this.roleModel.findOne({description: 'staff'});
-        if (!user) {
-            const newAccount = new this.accountModel({
-                fullName,
-                username,
-                password,
-                email,
-                avatar,
-                roleId
-            });
-            try {
-                await newAccount.save();
-            } catch (e) {
-                throw e;
-            }
-        }
-        return { accessToken }
-
-    }
 
     // @route    GET auth/me
     // @desc     get profile

@@ -27,6 +27,7 @@ const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
 const path = require("path");
 const uuid_1 = require("uuid");
+const login_social_credentials_dto_1 = require("./dto/login-social.credentials.dto");
 exports.storage = {
     storage: multer_1.diskStorage({
         destination: './uploads/profiles',
@@ -55,11 +56,11 @@ let AuthController = class AuthController {
             account: account
         });
     }
-    async signIn(loginDto, req) {
+    async signIn(loginCredentialsDto, req) {
         return this.authService.signIn(req.user);
     }
-    async loginSocial(loginDto, req) {
-        return this.authService.loginSocial(req.user);
+    async loginSocial(loginSocialCredentialsDto) {
+        return this.authService.loginSocial(loginSocialCredentialsDto);
     }
     getMe(req) {
         return this.authService.getMe(req.user);
@@ -102,11 +103,9 @@ __decorate([
 ], AuthController.prototype, "signIn", null);
 __decorate([
     common_1.Post('account/sign-in/social'),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
-    common_1.Post('account/sign-in'),
-    __param(0, common_1.Body(common_1.ValidationPipe)), __param(1, common_1.Request()),
+    __param(0, common_1.Body(common_1.ValidationPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [login_credentials_dto_1.LoginCredentialsDto, Object]),
+    __metadata("design:paramtypes", [login_social_credentials_dto_1.LoginSocialCredentialsDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "loginSocial", null);
 __decorate([

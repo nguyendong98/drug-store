@@ -66,3 +66,15 @@ export const signIn = (data) => async dispatch => {
     }
 };
 
+export const loginSocial = (data) => async dispatch => {
+    try {
+        const res = await api.post('auth/account/sign-in/social', data);
+        dispatch(setAlert(true, 'Login success, welcome you to DV pharmacy', 'success'));
+        dispatch(loginSuccess(res.data.accessToken));
+        dispatch(loadUser());
+        dispatch(closeLogin());
+    } catch (e) {
+        dispatch(setAlert(true, 'Login fail', 'error'));
+        throw e;
+    }
+}

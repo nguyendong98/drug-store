@@ -1,6 +1,7 @@
 import { AuthService } from './auth.service';
 import { AuthCredentialsDto } from './dto/auth.credentials.dto';
 import { LoginCredentialsDto } from './dto/login.credentials.dto';
+import { LoginSocialCredentialsDto } from './dto/login-social.credentials.dto';
 export declare const storage: {
     storage: any;
 };
@@ -9,10 +10,10 @@ export declare class AuthController {
     constructor(authService: AuthService);
     signUp(res: any, authCredentialsDto: AuthCredentialsDto): Promise<any>;
     createStaff(res: any, authCredentialsDto: AuthCredentialsDto): Promise<any>;
-    signIn(loginDto: LoginCredentialsDto, req: any): Promise<{
+    signIn(loginCredentialsDto: LoginCredentialsDto, req: any): Promise<{
         accessToken: string;
     }>;
-    loginSocial(loginDto: LoginCredentialsDto, req: any): Promise<{
+    loginSocial(loginSocialCredentialsDto: LoginSocialCredentialsDto): Promise<{
         accessToken: string;
     }>;
     getMe(req: any): Promise<import("./interface/auth.interface").Account>;

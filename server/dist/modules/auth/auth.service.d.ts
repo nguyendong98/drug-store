@@ -1,5 +1,5 @@
 import { Connection, Model } from 'mongoose';
-import { Account, AccountResponse, Role, SocialAccount } from './interface/auth.interface';
+import { Account, AccountResponse, Role } from './interface/auth.interface';
 import { AuthCredentialsDto } from './dto/auth.credentials.dto';
 import { JwtService } from '@nestjs/jwt';
 export declare class AuthService {
@@ -13,10 +13,10 @@ export declare class AuthService {
     signIn(account: Account): Promise<{
         accessToken: string;
     }>;
-    validateUser(username: string, pass: string): Promise<Account>;
-    loginSocial(payload: SocialAccount): Promise<{
+    loginSocial(payload: any): Promise<{
         accessToken: string;
     }>;
+    validateUser(username: string, pass: string): Promise<Account>;
     getMe(req: any): Promise<Account>;
     updateUserAvatar(id: string, fileName: string): Promise<AccountResponse>;
     getAll(query: any): Promise<any>;

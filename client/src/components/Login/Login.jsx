@@ -15,8 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from "@material-ui/core/Typography";
 import {closeLogin, showRegister} from "features/show-dialog";
-import {signIn} from "features/user";
-import {setAlert} from 'features/alert';
+import {loginSocial, signIn} from "features/user";
 import GoogleImg from 'assets/images/google.jpg';
 import FacebookImg from 'assets/images/facebook.png';
 import Twitter from 'assets/images/twitter.png';
@@ -27,6 +26,7 @@ export default function Login() {
     const openLogin = useSelector(state => state.showDialog.isOpenLogin);
 
     const onSubmit = data => {
+        data.type = 'normal';
         dispatch(signIn(data))
     }
     const closeDialogLogin = () => {
@@ -43,11 +43,14 @@ export default function Login() {
         dispatch(showRegister());
     }
     const googleSuccess = res => {
-        console.log(res)
-        dispatch(setAlert(true, 'Login success, wellcome you to DV pharmacy', 'success'));
-        // dispatch(loginSuccess(res.data.accessToken));
-        // dispatch(loadUser());
-        dispatch(closeLogin());
+        const data = {
+            username: res.profileObj.email,
+            avatar: res.profileObj.imageUrl,
+            email: res.profileObj.email,
+            fullName: res.profileObj.name,
+        }
+        dispatch(loginSocial(data));
+
     }
 
     const googleFailure = errors => {

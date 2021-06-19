@@ -96,6 +96,35 @@ let AuthService = class AuthService {
             accessToken: this.jwtService.sign(payload),
         };
     }
+    async loginSocial(payload) {
+        console.log(payload);
+        const { username, avatar, email, fullName } = payload;
+        const user = await this.accountModel.findOne({ email });
+        const roleId = await this.roleModel.findOne({ description: 'staff' });
+        if (!user) {
+            const newAccount = new this.accountModel({
+                fullName,
+                username,
+                email,
+                avatar,
+                roleId
+            });
+            try {
+                await newAccount.save();
+                const payload = { username: newAccount.username, sub: newAccount._id, roleId: newAccount.roleId };
+                return {
+                    accessToken: this.jwtService.sign(payload),
+                };
+            }
+            catch (e) {
+                throw e;
+            }
+        }
+        const p = { username: user.username, sub: user._id, roleId: user.roleId };
+        return {
+            accessToken: this.jwtService.sign(p),
+        };
+    }
     async validateUser(username, pass) {
         const user = await this.accountModel.findOne({ username });
         if (!user) {
@@ -106,28 +135,6 @@ let AuthService = class AuthService {
             return user;
         }
         return null;
-    }
-    async loginSocial(payload) {
-        const { username, password, avatar, email, fullName, accessToken } = payload;
-        const user = await this.accountModel.findOne({ email });
-        const roleId = await this.roleModel.findOne({ description: 'staff' });
-        if (!user) {
-            const newAccount = new this.accountModel({
-                fullName,
-                username,
-                password,
-                email,
-                avatar,
-                roleId
-            });
-            try {
-                await newAccount.save();
-            }
-            catch (e) {
-                throw e;
-            }
-        }
-        return { accessToken };
     }
     async getMe(req) {
         try {

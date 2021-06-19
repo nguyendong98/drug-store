@@ -1622,8 +1622,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/interface/auth.interface.ts": {
-        "version": "a4ae757b0632639ab0a9e9da616248427fe07a2d24d85383f1e247c5323c5494",
-        "signature": "97a91419a8c3a1102bae55e8e5f7dd8132b85c74874711ebd37b505ad4003dd2",
+        "version": "78a1697d15d033f86ab02febfa4ee42c432baedefadde92bf65e06f94921221e",
+        "signature": "4b5ace1e8973947eef9e37c2d119a7e5a52dbe4aecc1dcd6674f49a1cbd96093",
         "affectsGlobalScope": false
       },
       "../node_modules/class-validator/types/validation/validationerror.d.ts": {
@@ -2467,8 +2467,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/auth.service.ts": {
-        "version": "c065fbba3fd017a95fc218f09eccfa9ba4226cead7e982c952ab3172bebaf821",
-        "signature": "8ac9f751d65b26141bc1574d32dac7e170ecb56b4b01a785da45b33464c5cbf6",
+        "version": "79c599b8e8d7b2a4a820f9c75bc1ab38f4b29a3fb9e349e6d6b8d4a01b5b28a9",
+        "signature": "71cad4dee1fc88868f9662c2039750f0e578942ea10ac65fb43d93af41454358",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/passport/dist/abstract.strategy.d.ts": {
@@ -2856,9 +2856,14 @@
         "signature": "e3cd60be3c4f95c43420be67eaa21637585b7c1a8129f9b39983bbd294f9513c",
         "affectsGlobalScope": false
       },
+      "../src/modules/auth/dto/login-social.credentials.dto.ts": {
+        "version": "e43b92d9c6be55fcd21c883025385df4f12471d5ae96b6f06b0caa67aac3a8f4",
+        "signature": "334b0566311a05e03bb7e7c23028964ee70967ead92050cf69156b72ec8d2801",
+        "affectsGlobalScope": false
+      },
       "../src/modules/auth/auth.controller.ts": {
-        "version": "d6c6e157ef60fdafb14577a0a655853b17cee2c29f80665b2dcc844d923a1a71",
-        "signature": "4cc15a40e8e93b216a6f802d77e401d02fc1910745d97989c20ea86795dc6905",
+        "version": "576e6420cc1c1a509aee70e8feefac57ba3a25855a1adc9fb92f3204c6a00ff0",
+        "signature": "52a305eb54f0b5e4d7a4c0b83f0829000ab5d22ec953c8153743dafe77dfabc9",
         "affectsGlobalScope": false
       },
       "../src/modules/auth/auth.schema.ts": {
@@ -2882,7 +2887,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/auth/strategies/jwt-auth.strategy.ts": {
-        "version": "acb088c354a0e3f8e0d94e803d4ef620db3504aad0329c006020ceea6e8e2254",
+        "version": "7294e49a6e6893a0dfb29980433ceda45a4f53290ed6468aa06b9a9111d81038",
         "signature": "f27231661a1d4bbe19510394d255cc0e7c63216e5ec42c1bf7973120d9ab6a7e",
         "affectsGlobalScope": false
       },
@@ -5705,6 +5710,7 @@
         "../src/modules/auth/auth.service.ts",
         "../src/modules/auth/decorators/roles.decorator.ts",
         "../src/modules/auth/dto/auth.credentials.dto.ts",
+        "../src/modules/auth/dto/login-social.credentials.dto.ts",
         "../src/modules/auth/dto/login.credentials.dto.ts",
         "../src/modules/auth/guards/jwt-auth.guard.ts",
         "../src/modules/auth/guards/local-auth.guard.ts",
@@ -5738,6 +5744,10 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/modules/auth/dto/auth.credentials.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/modules/auth/dto/login-social.credentials.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
@@ -8217,6 +8227,7 @@
       "../src/modules/auth/auth.controller.ts": [
         "../src/modules/auth/auth.service.ts",
         "../src/modules/auth/dto/auth.credentials.dto.ts",
+        "../src/modules/auth/dto/login-social.credentials.dto.ts",
         "../src/modules/auth/dto/login.credentials.dto.ts",
         "../src/modules/auth/interface/auth.interface.ts"
       ],
@@ -9010,6 +9021,7 @@
       "../src/modules/auth/auth.service.ts",
       "../src/modules/auth/decorators/roles.decorator.ts",
       "../src/modules/auth/dto/auth.credentials.dto.ts",
+      "../src/modules/auth/dto/login-social.credentials.dto.ts",
       "../src/modules/auth/dto/login.credentials.dto.ts",
       "../src/modules/auth/guards/jwt-auth.guard.ts",
       "../src/modules/auth/guards/local-auth.guard.ts",

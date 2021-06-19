@@ -25,6 +25,7 @@ import {FileInterceptor} from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import path = require('path');
 import { v4 as uuid4 } from 'uuid';
+import {LoginSocialCredentialsDto} from './dto/login-social.credentials.dto';
 export const storage = {
     storage: diskStorage({
         destination: './uploads/profiles',
@@ -69,15 +70,13 @@ export class AuthController {
     }
     @UseGuards(LocalAuthGuard)
     @Post('account/sign-in')
-    async signIn(@Body (ValidationPipe) loginDto: LoginCredentialsDto, @Request() req) {
+    async signIn(@Body (ValidationPipe) loginCredentialsDto: LoginCredentialsDto, @Request() req) {
         return this.authService.signIn(req.user);
     }
 
     @Post('account/sign-in/social')
-    @UseGuards(JwtAuthGuard)
-    @Post('account/sign-in')
-    async loginSocial(@Body (ValidationPipe) loginDto: LoginCredentialsDto, @Request() req) {
-        return this.authService.loginSocial(req.user);
+    async loginSocial(@Body (ValidationPipe) loginSocialCredentialsDto: LoginSocialCredentialsDto) {
+        return this.authService.loginSocial(loginSocialCredentialsDto);
     }
 
     @UseGuards(JwtAuthGuard)
