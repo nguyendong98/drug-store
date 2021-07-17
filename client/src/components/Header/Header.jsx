@@ -34,7 +34,7 @@ import Login from '../Login/Login';
 import Register from "../Register/Register";
 import {showLogin} from "../../features/show-dialog";
 import {signOut} from "../../features/user";
-import {avatarURL, productURL} from "../../utils/imageURL";
+import {avatarURL, productURL} from "../../utils/constant";
 import {getAllProductCategoryGroup, getProductCategory} from "../../features/product";
 import {getCartSuccess, removeCartItemSuccess} from "../../features/cart";
 import {SidebarMob} from '../SidebarMob/SidebarMob';

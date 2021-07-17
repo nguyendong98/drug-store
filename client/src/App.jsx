@@ -4,17 +4,19 @@ import 'moment/locale/vi';
 
 import AppRoute from 'share/Route/AppRoute';
 
-import setAuthToken from 'utils/setAuthToken';
+import setToken from 'utils/set-token';
 import {loadUser} from 'features/user';
+import {errorInterceptor} from './utils/error_interceptor';
 
 
 export default function App() {
     const dispatch = useDispatch();
     useEffect(() => {
         if (localStorage['x-auth-token']) {
-            setAuthToken(localStorage['x-auth-token']);
-            dispatch(loadUser());
-        }
+        setToken(localStorage['x-auth-token']);
+        dispatch(loadUser());
+    }
+    errorInterceptor();
     }, [dispatch, localStorage['x-auth-token']]);
     return (
         <AppRoute />

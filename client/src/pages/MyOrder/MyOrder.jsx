@@ -1,7 +1,7 @@
 import React, {useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrder} from "../../features/order";
-import setAuthToken from "../../utils/setAuthToken";
+import setToken from "../../utils/set-token";
 import {loadUser} from "../../features/user";
 import {MyOrderTable} from "./MyOrderTable/MyOrderTable";
 
@@ -9,7 +9,7 @@ export default function MyOrder() {
     const dispatch = useDispatch();
     useEffect(() => {
         if (localStorage['x-auth-token']) {
-            setAuthToken(localStorage['x-auth-token']);
+            setToken(localStorage['x-auth-token']);
             dispatch(loadUser());
             dispatch(getOrder({pageSize: 1000, pageNumber: 1}));
         }

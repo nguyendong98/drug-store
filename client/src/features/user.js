@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {api} from '../utils/api';
 import {setAlert} from "./alert";
 import {closeLogin, closeRegister} from "./show-dialog";
-import setAuthToken from "../utils/setAuthToken";
+import setToken from "../utils/set-token";
 const slice = createSlice({
     name: 'user',
     initialState: {
@@ -34,7 +34,7 @@ export const { loginSuccess, userLoaded, signOut } = slice.actions;
 export const loadUser = () => async dispatch => {
     const token = localStorage['x-auth-token'];
     if (token) {
-        setAuthToken(token);
+        setToken(token);
     }
     try {
         const res = await api.get('/auth/me');

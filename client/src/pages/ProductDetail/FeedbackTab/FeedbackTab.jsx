@@ -9,7 +9,7 @@ import "./FeedbackTab.scss";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {ListFeedBack} from "../ListFeedBack/ListFeedBack";
-import {avatarURL} from "../../../utils/imageURL";
+import {avatarURL} from "../../../utils/constant";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 const labels = {

@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
-import {productURL} from "../../../utils/imageURL";
+import {productURL} from "../../../utils/constant";
 import TextField from "@material-ui/core/TextField";
 import {useForm} from "react-hook-form";
 import Button from "@material-ui/core/Button";

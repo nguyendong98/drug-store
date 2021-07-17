@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Badge from '@material-ui/core/Badge';
 import LocalGroceryStoreIcon from '@material-ui/icons/LocalGroceryStore';
-import {avatarURL} from '../../utils/imageURL';
+import {avatarURL} from '../../utils/constant';
 import Avatar from '@material-ui/core/Avatar';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useDispatch} from 'react-redux';
